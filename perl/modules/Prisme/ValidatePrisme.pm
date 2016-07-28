@@ -23,6 +23,11 @@ use APR::Table;
       warn "DATA: -----------------------------------------------------------------";
       #note, the HTTP_ portion should not be included.
       return OK unless $r->headers_in->EXISTS('SM_UNIVERSALID');#Shouldn't need this line in PerlFixupHandler lifecycle phase
+      # in a meeting with:
+      #Ray Shapouri
+      #Mohammad.Shapouri@va.gov
+      #We have been advised to switch to:
+      #HTTP_ADSAMACCOUNTNAME
       my $user = $r->headers_in->get('SM_UNIVERSALID');
       $r->log_error("The user is $user");
       return OK if ( ($user eq 'vhaiswshuppc') || $user eq ('vacocuestc'));
