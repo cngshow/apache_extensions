@@ -57,7 +57,7 @@ When hitting your url, perhaps:
 ```
 https://myserver/perl/cris.pl
 ```
-If you see a page that shows you the mod perl version and your header info 
+If you see a page that shows you the mod perl version and your header info,
 you have succeeded.
 
 
@@ -83,8 +83,6 @@ Now in httpd.conf add:
 \<Directory\> or \<Files\> section.  
 This current config will only run the validator 
 against the root path ('/').  More research is needed to enhance the config to run where needed.
-*
-
 
 A quick examination of startup.pl shows us that:
 ```
@@ -106,8 +104,8 @@ mod_proxy
 
 mod_proxy:
 
-The objective is to forward/proxy the incoming request over ssl to it's final destination.
-In this initial implementation, we are proxi'ng / (root) over to the destination server.
+The objective is to forward/proxy the incoming request over ssl to its final destination.
+In this initial implementation, we are proxying / (root) over to the destination server.
 We have to nest the mod_proxy config in the ssl.conf file under httpd/conf.d/ssl.conf
 In this initial implementation we aren't using VirtualHost(s) yet.
 

@@ -30,7 +30,7 @@ use APR::Table;
       #HTTP_ADSAMACCOUNTNAME
       my $user = $r->headers_in->get('SM_UNIVERSALID');
       $r->log_error("The user is $user");
-      return OK if ( ($user eq 'vhaiswshuppc') || $user eq ('vacocuestc'));
+      return OK if (($user eq 'vhaiswshuppc') || ($user eq 'VHAISPBOWMAG') ||($user eq 'vacocuestc'));
       return FORBIDDEN;
       #return FORBIDDEN#unless $r->method eq METHOD;
 
