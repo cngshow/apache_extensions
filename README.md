@@ -49,7 +49,7 @@ place cris.pl in:
 /var/www/cgi-bin/
 ```
 
-cris.pl is dependent on Perl's CGI.pm module:
+cris.pl is dependent on Perl's CGI.pm module (note some versions of CPAN do not require and will not allows the 'install' keyword):
 ```
 cpan install CGI
 ```
@@ -91,7 +91,13 @@ A quick examination of startup.pl shows us that:
 is on the include path.  We need to ensure that the subdirectory 'Prisme' is present
 and that it contains the perl module 'ValidatePrisme.pm'
 
+ValidatePrisme.pm needs the following software installed, (keep in mind 'install' might not be required):
+```
+cpan install LWP
+cpan install JSON::Parse
+```
 
+(document where constants.pl goes)
 
 The initial implementation allows Claudio's and Cris' accounts access and denies all
 others.
