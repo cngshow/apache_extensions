@@ -7,7 +7,7 @@ use Apache2::Const qw(FORBIDDEN OK);
 use Apache2::Log;
 use Apache2::RequestRec;
 use APR::Table;
-require 'constants.pl';
+#require 'constants.pl';# done in http.conf
 use LWP::UserAgent;
 use URI;
 my $ua = LWP::UserAgent->new( ssl_opts => { verify_hostname => 0 } );
@@ -55,6 +55,8 @@ sub rest_call($$) {
 	unless ( defined $cache_hash{'lease'}->{$user_name} ) {
 		$cache_hash{'lease'}->{$user_name} = 0;
 		#print $cache_hash{'lease'}->{$user_name} . "\n";
+		my $last_check = $CACHE::cache_hash{'lease'}->{$user_name};
+		$logger->info("Last check for user $user_name was at $last_check");
 	}
 	if ( ( time - $cache_hash{'lease'}->{$user_name} ) > $CONST::SECONDS_CACHE )
 	{
@@ -77,7 +79,7 @@ sub rest_call($$) {
 		  #if we get invalid JSON.  We will log the error, and send a forbidden.
 			$res     = $ua->request($req);
 			$content = $res->content;
-			$logger->info("The roles from prisme are:\n $content")
+			$logger->info("The roles from prisme are:\n $content");
 			$roles   = $json_decoder_ring->decode($content);
 		};
 		unless ($roles) {
@@ -92,7 +94,9 @@ sub rest_call($$) {
 		$cache_hash{'roles'}->{$user_name} = \@role_names;
 		$return_code = allowed( \@role_names,$logger );
 		use warnings;
+		my $current_time = time;
 		$cache_hash{'lease'}->{$user_name} = time;
+        $logger->info("Setting time for $user_name to $current_time");
 	}
 	else {
 		$logger->info("Using role cache for user $user_name");
@@ -110,8 +114,10 @@ sub apr_iterator {
 sub handler {
 	my $r = shift;
 	my $user = $r->headers_in->get('ADSAMACCOUNTNAME');
-	$r->log->info("The user for this request is $user");
-	return rest_call($user,$r->log);
+	$r->log->info("Request start on pid $$: The user for this request is $user");
+	my $val = rest_call($user,$r->log);
+	$r->log->info("Request end on pid $$: The user for this request is $user");
+	return $val;
 }
 	#$r->log_error("--->request: log_error");
 	#$r->log("request: regular log");
