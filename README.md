@@ -97,7 +97,30 @@ cpan install LWP
 cpan install JSON::Parse
 ```
 
-(document where constants.pl goes)
+There is a file called constants.pl, you must add it in httpd.conf:
+```
+PerlRequire /etc/httpd/scripts/constants.pl
+```
+
+I put it right below startup.pl.  This file is engineered to be easy for a sys admin to modify.
+It looks partly like this:
+```
+#number of seconds we will cache a users roles for
+$SECONDS_CACHE = 5*60; #every five minutes re-fetch.
+$PRISME_ROLES_URL = 'https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/roles/get_ssoi_roles.json';
+#$PRISME_ROLES_URL = 'http://localhost:3000/roles/get_ssoi_roles.json';
+$REQUIRED_ROLES = ['super_user','administrator']; #at least one of these role must be present to prevent the dreaded 'FORBIDDEN'!
+```
+
+our mod perl module does quite a bit of logging.  To set log levels look for something
+like this in the appropriate .conf file
+```
+# Use separate log files for the SSL virtual host; note that LogLevel
+# is not inherited from httpd.conf.
+ErrorLog logs/ssl_error_log
+TransferLog logs/ssl_access_log
+LogLevel warn
+```
 
 The initial implementation allows Claudio's and Cris' accounts access and denies all
 others.
