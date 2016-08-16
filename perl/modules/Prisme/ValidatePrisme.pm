@@ -11,12 +11,13 @@ require 'constants.pl';
 use LWP::UserAgent;
 use URI;
 my $ua = LWP::UserAgent->new( ssl_opts => { verify_hostname => 0 } );
-use JSON::Parse 'parse_json';
+use JSON;
 
 print "My lease will last for $CONST::SECONDS_CACHE seconds!\n";
 my %cache_hash;
 $cache_hash{'lease'} = {};
 $cache_hash{'roles'} = {};
+my $json_decoder_ring = JSON->new;
 
 sub allowed($) {
 	my $roles      = shift;
@@ -72,7 +73,7 @@ sub rest_call($) {
 		  #if we get invalid JSON.  We will log the error, and send a forbidden.
 			$res     = $ua->request($req);
 			$content = $res->content;
-			$roles   = parse_json($content);
+			$roles   = $json_decoder_ring->decode($content);
 		};
 		unless ($roles) {
 			warn "Failed to get Prisme roles!\n";
