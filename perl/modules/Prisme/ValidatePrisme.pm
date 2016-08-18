@@ -79,7 +79,7 @@ sub rest_call($$) {
 		  #if we get invalid JSON.  We will log the error, and send a forbidden.
 			$res     = $ua->request($req);
 			$content = $res->content;
-			$logger->info("The roles from prisme are:\n $content");
+			$logger->info("The roles from prisme are: $content");
 			$roles   = $json_decoder_ring->decode($content);
 		};
 		unless ($roles) {
@@ -115,9 +115,16 @@ sub handler {
 	my $r = shift;
 	my $user = $r->headers_in->get('ADSAMACCOUNTNAME');
 	$r->log->info("Request start on pid $$: The user for this request is $user");
-	my $val = rest_call($user,$r->log);
-	$r->log->info("Request end on pid $$: The user for this request is $user");
-	return $val;
+	if($user) {
+		my $val = rest_call($user,$r->log);
+    	$r->log->info("Request end on pid $$: The user for this request is $user");
+    	return $val; #OK or FORBIDDEN
+    	}
+    	else {
+    		$r->log->info("Request end on pid $$: There is no user.  Forbidden.");
+    		return FORBIDDEN;
+	}
+
 }
 	#$r->log_error("--->request: log_error");
 	#$r->log("request: regular log");
