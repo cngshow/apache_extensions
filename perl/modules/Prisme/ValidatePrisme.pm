@@ -105,24 +105,47 @@ sub rest_call($$) {
 	$return_code;
 }
 
-sub apr_iterator {
-	my ( $key, $value ) = @_;
-	warn "DATA: $key => $value\n";    #goes to  /var/log/httpd/error_log
+sub apr_iterator($$) {
+    my $headers = shift;
+    my $logger = shift;
+	while (my ($key, $value) = each %$headers) {
+		$logger->info("PID: $$ DATA: $key => $value");    #goes to  /var/log/httpd/error_log
+	}
 	return 1;
 }
 
 sub handler {
 	my $r = shift;
+	if ($CONST::LOG_HEADERS) {
+    	$r->log->info("PID: DATA: -----------------------------------------------------------------");
+        #$r->headers_in()->do("apr_iterator");
+        apr_iterator($r->headers_in(), $r->log);
+        $r->log->info("PID: : -----------------------------------------------------------------");
+    }
+
+	if ($CONST::ACCEPT_ALL_REQUESTS) {
+	  $r->log->warn("In accept all requests mode! $$");
+	  return OK;
+	}
+	my $accept = $r->headers_in->get('Accept');
 	my $user = $r->headers_in->get('ADSAMACCOUNTNAME');
 	$r->log->info("Request start on pid $$: The user for this request is $user");
+
 	if($user) {
 		my $val = rest_call($user,$r->log);
     	$r->log->info("Request end on pid $$: The user for this request is $user");
     	return $val; #OK or FORBIDDEN
     	}
     	else {
-    		$r->log->info("Request end on pid $$: There is no user.  Forbidden.");
-    		return FORBIDDEN;
+    	     if ($accept =~ /image\/png/) {
+                  # we accept if the request is strictly an image request.
+                  #Accept => image/png,
+                  $r->log->info("Request end on pid $$: Just an image request OK.");
+                  return OK;
+            } else {
+    	          return FORBIDDEN;
+    	      	  $r->log->info("Request end on pid $$: There is no user. Forbidden.");
+    	      	}
 	}
 
 }
