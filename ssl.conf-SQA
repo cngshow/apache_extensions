@@ -65,7 +65,7 @@ CustomLog logs/ssl_request_log \
           "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 # Special Proxy Mappings
 #
-#Komet (only to app703 - need to define if we will have more than 1 instance running or both load balanced)
+#Komet (only to app703 for komet_a)
 ProxyPass /komet/assets https://vaausappctt703.aac.va.gov:8080/rails_komet_a/assets
 ProxyPassReverse /komet/assets https://vaausappctt703.aac.va.gov:8080/rails_komet_a/assets
 ProxyPass /komet/mapping https://vaausappctt703.aac.va.gov:8080/rails_komet_a/mapping
@@ -74,6 +74,8 @@ ProxyPass komet/komet_dashboard https://vaausappctt703.aac.va.gov:8080/rails_kom
 ProxyPassReverse /komet/komet_dashboard https://vaausappctt703.aac.va.gov:8080/rails_komet_a/komet_dashboard
 ProxyPass /komet/external https://vaausappctt703.aac.va.gov:8080/rails_komet_a/external
 ProxyPassReverse /komet/external https://vaausappctt703.aac.va.gov:8080/rails_komet_a/external
+
+#Komet - need to add mappings for komet_b
 
 #Prisme
 ProxyPass /rails_prisme/assets https://vaausdbsctt700.aac.va.gov:8080/rails_prisme/assets
@@ -95,9 +97,6 @@ ProxyPassReverse /jenkins https://vaausappctt702.aac.va.gov/jenkins
 #ProxyPass /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
 #ProxyPassReverse /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
 
-#
-# Wildcards? the mappings don't work - needs more research
-#
 </VirtualHost>
 
 #Rewrite Rules
@@ -117,9 +116,16 @@ ProxyPass https://vaausdbsctt700.aac.va.gov:8080/rails_prisme/
 ProxyPassReverse https://vaausdbsctt700.aac.va.gov:8080/rails_prisme/
 </Location>
 
-<Location /komet/>
+#Location for komet_a
+<Location /komet_a/>
 ProxyPass https://vaausappctt703.aac.va.gov:8080/rails_komet_a/
 ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/rails_komet_a/
+</Location>
+
+#Location for komet_b
+<Location /komet_b/>
+ProxyPass https://vaausappctt704.aac.va.gov:8080/rails_komet_b/
+ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/rails_komet_b/
 </Location>
 
 <Location /git/>
