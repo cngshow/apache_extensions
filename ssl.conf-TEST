@@ -65,66 +65,72 @@ CustomLog logs/ssl_request_log \
           "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 # Special Proxy Mappings
 #
-#Komet (only to web83 - need to define if we will have more than 1 instance running or both load balanced)
-ProxyPass /komet/assets https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/assets
-ProxyPassReverse /komet/assets https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/assets
-ProxyPass /komet/mapping https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/mapping
-ProxyPassReverse /komet/mapping https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/mapping
-ProxyPass komet/komet_dashboard https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/komet_dashboard
-ProxyPassReverse /komet/komet_dashboard https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/komet_dashboard
-ProxyPass /komet/external https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/external
-ProxyPassReverse /komet/external https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/external
+#Komet (only to web84 for komet_a)
+ProxyPass /komet/assets https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/assets
+ProxyPassReverse /komet/assets https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/assets
+ProxyPass /komet/mapping https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPassReverse /komet/mapping https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPass /komet/komet_dashboard https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPassReverse /komet/komet_dashboard https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPass /komet/external https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/external
+ProxyPassReverse /komet/external https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/external
+
+#Komet - need to add mappings for komet_b
 
 #Prisme
-ProxyPass /rails_prisme/assets https://vaauscttweb85.aac.va.gov:8080/rails_prisme/assets
-ProxyPassReverse /rails_prisme/assets https://vaauscttweb85.aac.va.gov:8080/rails_prisme/assets
-ProxyPass /rails_prisme/welcome https://vaauscttweb85.aac.va.gov:8080/rails_prisme/welcome
-ProxyPassReverse /rails_prisme/welcome https://vaauscttweb85.aac.va.gov:8080/rails_prisme/welcome
-ProxyPass /rails_prisme/users/sign_in https://vaauscttweb85.aac.va.gov:8080/rails_prisme/users/sign_in
-ProxyPassReverse /rails_prisme/users/sign_in https://vaauscttweb85.aac.va.gov:8080/rails_prisme/users/sign_in
-ProxyPass /rails_prisme https://vaauscttweb85.aac.va.gov:8080/rails_prisme
-ProxyPassReverse /rails_prisme https://vaauscttweb85.aac.va.gov:8080/rails_prisme
+ProxyPass /rails_prisme/assets https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/assets
+ProxyPassReverse /rails_prisme/assets https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/assets
+ProxyPass /rails_prisme/welcome https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/welcome
+ProxyPassReverse /rails_prisme/welcome https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/welcome
+ProxyPass /rails_prisme/users/sign_in https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/users/sign_in
+ProxyPassReverse /rails_prisme/users/sign_in https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/users/sign_in
+ProxyPass /rails_prisme https://vaauscttdbs82.aac.va.gov:8080/rails_prisme
+ProxyPassReverse /rails_prisme https://vaauscttdbs82.aac.va.gov:8080/rails_prisme
 
 #Jenkins - NEEDS MORE WORK, STILL NOT MAPPED PROPERLY
-ProxyPass /jenkins https://vaauscttweb82.aac.va.gov:8080/jenkins
-ProxyPassReverse /jenkins https://vaauscttweb82.aac.va.gov/jenkins
-#ProxyPass /static https://vadev.mantech.com:8081/static
-#ProxyPassReverse /static https://vadev.mantech.com:8081/static
-#ProxyPass /adjuncts https://vadev.mantech.com:8081/adjuncts
-#ProxyPassReverse /adjuncts https://vadev.mantech.com:8081/adjuncts
-#ProxyPass /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
-#ProxyPassReverse /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
+ProxyPass /jenkins https://vaauscttweb83.aac.va.gov:8080/jenkins
+ProxyPassReverse /jenkins https://vaauscttweb83.aac.va.gov/jenkins
+#ProxyPass /static https://vaauscttweb83.aac.va.gov:8080/static
+#ProxyPassReverse /static https://vaauscttweb83.aac.va.gov:8080/static
+#ProxyPass /adjuncts https://vaauscttweb83.aac.va.gov:8080/adjuncts
+#ProxyPassReverse /adjuncts https://vaauscttweb83.aac.va.gov:8080/adjuncts
+#ProxyPass /loginj_acegi_security_check https://vaauscttweb83.aac.va.gov:8080/loginj_acegi_security_check
+#ProxyPassReverse /loginj_acegi_security_check https://vaauscttweb83.aac.va.gov:8080/loginj_acegi_security_check
 
-#
-# Wildcards? the mappings don't work - needs more research
-#
 </VirtualHost>
 
 #Rewrite Rules
 #
 <Location /nexus>
-ProxyPass https://vaauscttweb82.aac.va.gov:8443/nexus
-ProxyPassReverse https://vaauscttweb82.aac.va.gov:8443/nexus
+ProxyPass https://vaauscttweb83.aac.va.gov:8443/nexus
+ProxyPassReverse https://vaauscttweb83.aac.va.gov:8443/nexus
 </Location>
 
 #<Location /jenkins>
-#ProxyPass https://vadev.mantech.com:8081/login
-#ProxyPassReverse https://vadev.mantech.com:8081/login
+#ProxyPass https://vaauscttweb83.aac.va.gov:8080/login
+#ProxyPassReverse https://vaauscttweb83.aac.va.gov:8080/login
 #</Location>
 
 <Location /prisme/>
-ProxyPass https://vaauscttweb85.aac.va.gov:8080/rails_prisme/
-ProxyPassReverse https://vaauscttweb85.aac.va.gov:8080/rails_prisme/
+ProxyPass https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/
+ProxyPassReverse https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/
 </Location>
 
-<Location /komet/>
-ProxyPass https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/
-ProxyPassReverse https://vaauscttweb83.aac.va.gov:8080/rails_komet_a/
+#Location for komet_a
+<Location /komet_a/>
+ProxyPass https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/
+ProxyPassReverse https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/
+</Location>
+
+#Location for komet_b
+<Location /komet_b/>
+ProxyPass https://vaauscttweb84.aac.va.gov:8080/rails_komet_b/
+ProxyPassReverse https://vaauscttweb84.aac.va.gov:8080/rails_komet_b/
 </Location>
 
 <Location /git/>
-ProxyPass https://vaauscttweb85.aac.va.gov:8080/git/
-ProxyPassReverse https://vaauscttweb85.aac.va.gov:8080/git/
+ProxyPass https://vaauscttdbs82.aac.va.gov:8080/git/
+ProxyPassReverse https://vaauscttdbs82.aac.va.gov:8080/git/
 </Location>
 
 
