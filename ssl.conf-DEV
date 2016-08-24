@@ -87,17 +87,14 @@ ProxyPassReverse /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prism
 
 #Jenkins - NEEDS MORE WORK, STILL NOT MAPPED PROPERLY
 ProxyPass /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
-ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov/jenkins
-#ProxyPass /static https://vadev.mantech.com:8081/static
-#ProxyPassReverse /static https://vadev.mantech.com:8081/static
-#ProxyPass /adjuncts https://vadev.mantech.com:8081/adjuncts
-#ProxyPassReverse /adjuncts https://vadev.mantech.com:8081/adjuncts
-#ProxyPass /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
-#ProxyPassReverse /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
+ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
+#ProxyPass /static https://vaauscttdbs81.aac.va.gov:8080/static
+#ProxyPassReverse /static https://vaauscttdbs81.aac.va.gov:8080/static
+#ProxyPass /adjuncts https://vaauscttweb81.aac.va.gov:8080/adjuncts
+#ProxyPassReverse /adjuncts https://vaauscttdbs81.aac.va.gov:8080/adjuncts
+#ProxyPass /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
+#ProxyPassReverse /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
 
-#
-# Wildcards? the mappings don't work - needs more research
-#
 </VirtualHost>
 
 #Rewrite Rules
@@ -108,8 +105,8 @@ ProxyPassReverse https://vaauscttdbs81.aac.va.gov:8443/nexus
 </Location>
 
 #<Location /jenkins>
-#ProxyPass https://vadev.mantech.com:8081/login
-#ProxyPassReverse https://vadev.mantech.com:8081/login
+#ProxyPass https://vauscttweb81.aac.va.gov:8080/login
+#ProxyPassReverse https://vaauscttweb81.aac.va.gov:8080/login
 #</Location>
 
 <Location /prisme/>
