@@ -85,7 +85,7 @@ ProxyPassReverse /rails_prisme/users/sign_in https://vaauscttdbs80.aac.va.gov:80
 ProxyPass /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
 ProxyPassReverse /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
 
-#Jenkins - NEEDS MORE WORK, STILL NOT MAPPED PROPERLY
+#Jenkins - Need to change the location of jenkins to serve from https://hostname:port/jenkins
 ProxyPass /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 #ProxyPass /static https://vaauscttdbs81.aac.va.gov:8080/static
@@ -94,6 +94,11 @@ ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 #ProxyPassReverse /adjuncts https://vaauscttdbs81.aac.va.gov:8080/adjuncts
 #ProxyPass /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
 #ProxyPassReverse /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
+
+#ISAAC-REST
+Proxypass /isaac-rest https://vaauscttweb80.aac.va.gov:8080/isaac-rest
+ProxyPassReverse /isaac-rest https://vaauscttweb80.aac.va.gov:8080/isaac-rest
+
 
 </VirtualHost>
 
@@ -104,6 +109,7 @@ ProxyPass https://vaauscttdbs81.aac.va.gov:8443/nexus
 ProxyPassReverse https://vaauscttdbs81.aac.va.gov:8443/nexus
 </Location>
 
+#May not need this...
 #<Location /jenkins>
 #ProxyPass https://vauscttweb81.aac.va.gov:8080/login
 #ProxyPassReverse https://vaauscttweb81.aac.va.gov:8080/login
