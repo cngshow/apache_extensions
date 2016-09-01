@@ -65,7 +65,7 @@ CustomLog logs/ssl_request_log \
           "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 # Special Proxy Mappings
 #
-#Komet (only to app703 for komet_a)
+#Komet (only to appctt703 for rails_komet_a)
 ProxyPass /komet/assets https://vaausappctt703.aac.va.gov:8080/rails_komet_a/assets
 ProxyPassReverse /komet/assets https://vaausappctt703.aac.va.gov:8080/rails_komet_a/assets
 ProxyPass /komet/mapping https://vaausappctt703.aac.va.gov:8080/rails_komet_a/mapping
@@ -75,7 +75,15 @@ ProxyPassReverse /komet/komet_dashboard https://vaausappctt703.aac.va.gov:8080/r
 ProxyPass /komet/external https://vaausappctt703.aac.va.gov:8080/rails_komet_a/external
 ProxyPassReverse /komet/external https://vaausappctt703.aac.va.gov:8080/rails_komet_a/external
 
-#Komet - need to add mappings for komet_b
+#Komet - (only to appctt704 for rails_komet_b)
+ProxyPass /komet/assets https://vaausappctt704.aac.va.gov:8080/rails_komet_b/assets
+ProxyPassReverse /komet/assets https://vaausappctt704.aac.va.gov:8080/rails_komet_b/assets
+ProxyPass /komet/mapping https://vaausappctt704.aac.va.gov:8080/rails_komet_b/mapping
+ProxyPassReverse /komet/mapping https://vaausappctt704.aac.va.gov:8080/rails_komet_b/mapping
+ProxyPass komet/komet_dashboard https://vaausappctt704.aac.va.gov:8080/rails_komet_b/komet_dashboard
+ProxyPassReverse /komet/komet_dashboard https://vaausappctt704.aac.va.gov:8080/rails_komet_b/komet_dashboard
+ProxyPass /komet/external https://vaausappctt704.aac.va.gov:8080/rails_komet_b/external
+ProxyPassReverse /komet/external https://vaausappctt704.aac.va.gov:8080/rails_komet_b/external
 
 #Prisme
 ProxyPass /rails_prisme/assets https://vaausdbsctt700.aac.va.gov:8080/rails_prisme/assets
@@ -87,7 +95,7 @@ ProxyPassReverse /rails_prisme/users/sign_in https://vaausdbsctt700.aac.va.gov:8
 ProxyPass /rails_prisme https://vaausdbsctt700.aac.va.gov:8080/rails_prisme
 ProxyPassReverse /rails_prisme https://vaausdbsctt700.aac.va.gov:8080/rails_prisme
 
-#Jenkins - NEEDS MORE WORK, STILL NOT MAPPED PROPERLY
+#Jenkins - The mapping works ONLY if/when jenkins is moved to /jenkins. Need to check gitblit integration and make sure it does not break things
 ProxyPass /jenkins https://vaausappctt702.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaausappctt702.aac.va.gov/jenkins
 #ProxyPass /static https://vadev.mantech.com:8081/static
@@ -96,6 +104,11 @@ ProxyPassReverse /jenkins https://vaausappctt702.aac.va.gov/jenkins
 #ProxyPassReverse /adjuncts https://vadev.mantech.com:8081/adjuncts
 #ProxyPass /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
 #ProxyPassReverse /loginj_acegi_security_check https://vadev.mantech.com:8081/loginj_acegi_security_check
+
+#ISAAC-REST
+Proxypass /isaac-rest https://vaausappctt703.aac.va.gov:8080/isaac-rest
+ProxyPassReverse /isaac-rest https://vaausappctt703.aac.va.gov:8080/isaac-rest
+
 
 </VirtualHost>
 
@@ -106,6 +119,7 @@ ProxyPass https://vaausappctt702.aac.va.gov:8443/nexus
 ProxyPassReverse https://vaausappctt702.aac.va.gov:8443/nexus
 </Location>
 
+#May not need this...
 #<Location /jenkins>
 #ProxyPass https://vadev.mantech.com:8081/login
 #ProxyPassReverse https://vadev.mantech.com:8081/login
