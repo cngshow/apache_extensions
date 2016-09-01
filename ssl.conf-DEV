@@ -129,5 +129,3 @@ ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/
 ProxyPass https://vaauscttdbs80.aac.va.gov:8080/git/
 ProxyPassReverse https://vaauscttdbs80.aac.va.gov:8080/git/
 </Location>
-
-
