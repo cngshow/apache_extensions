@@ -66,14 +66,14 @@ CustomLog logs/ssl_request_log \
 # Special Proxy Mappings
 #
 #Komet
-ProxyPass /komet/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
-ProxyPassReverse /komet/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
-ProxyPass /komet/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/mapping
-ProxyPassReverse /komet/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/mapping
-ProxyPass komet/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/komet_dashboard
-ProxyPassReverse /komet/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/komet_dashboard
-ProxyPass /komet/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
-ProxyPassReverse /komet/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
+ProxyPass /rails_komet_a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
+ProxyPassReverse /rails_komet_a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
+ProxyPass /rails_komet_a/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPassReverse /rails_komet_a/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPass /rails_komet_a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPassReverse /rails_komet_a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPass /rails_komet_a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
+ProxyPassReverse /rails_komet_a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
 
 #Prisme
 ProxyPass /rails_prisme/assets https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/assets
@@ -94,6 +94,20 @@ ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 #ProxyPassReverse /adjuncts https://vaauscttdbs81.aac.va.gov:8080/adjuncts
 #ProxyPass /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
 #ProxyPassReverse /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
+
+#ProxyPass /manager https://vaauscttweb80.aac.va.gov:8080/manager/
+#ProxyPassReverse /manager https://vaauscttweb80.aac.va.gov:8080/manager/
+
+<Location /manager>
+ProxyPass https://vaauscttweb80.aac.va.gov:8080/manager/
+ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/manager/
+AuthType basic
+AuthBasicAuthoritative Off
+SetEnv proxy-chain-auth On
+</Location>
+
+ProxyPass /isaac-rest https://vaauscttweb80.aac.va.gov:8080/isaac-rest
+ProxyPassReverse /isaac-rest https://vaauscttweb80.aac.va.gov:8080/isaac-rest
 
 </VirtualHost>
 
@@ -124,4 +138,10 @@ ProxyPass https://vaauscttdbs80.aac.va.gov:8080/git/
 ProxyPassReverse https://vaauscttdbs80.aac.va.gov:8080/git/
 </Location>
 
-
+#<Location /manager/>
+#AuthType basic
+#AuthBasicAuthoritative Off
+#SetEnv proxy-chain-auth On
+#ProxyPass https://vaauscttweb80.aac.va.gov:8080/manager/
+#ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/manager/
+#</Location>
