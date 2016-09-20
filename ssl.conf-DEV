@@ -85,7 +85,7 @@ ProxyPassReverse /rails_prisme/users/sign_in https://vaauscttdbs80.aac.va.gov:80
 ProxyPass /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
 ProxyPassReverse /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
 
-#Jenkins - NEEDS MORE WORK, STILL NOT MAPPED PROPERLY
+#Jenkins - The mapping works ONLY if/when jenkins is moved to /jenkins. Need to check gitblit integration and make sure it does not break things
 ProxyPass /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 #ProxyPass /static https://vaauscttdbs81.aac.va.gov:8080/static
@@ -118,11 +118,6 @@ ProxyPass https://vaauscttdbs81.aac.va.gov:8443/nexus
 ProxyPassReverse https://vaauscttdbs81.aac.va.gov:8443/nexus
 </Location>
 
-#<Location /jenkins>
-#ProxyPass https://vauscttweb81.aac.va.gov:8080/login
-#ProxyPassReverse https://vaauscttweb81.aac.va.gov:8080/login
-#</Location>
-#tset
 <Location /prisme/>
 ProxyPass https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/
 ProxyPassReverse https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/
@@ -138,10 +133,3 @@ ProxyPass https://vaauscttdbs80.aac.va.gov:8080/git/
 ProxyPassReverse https://vaauscttdbs80.aac.va.gov:8080/git/
 </Location>
 
-#<Location /manager/>
-#AuthType basic
-#AuthBasicAuthoritative Off
-#SetEnv proxy-chain-auth On
-#ProxyPass https://vaauscttweb80.aac.va.gov:8080/manager/
-#ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/manager/
-#</Location>

@@ -66,24 +66,24 @@ CustomLog logs/ssl_request_log \
 # Special Proxy Mappings
 #
 #Komet (only to web84 for rails_komet_a)
-ProxyPass /komet/assets https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/assets
-ProxyPassReverse /komet/assets https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/assets
-ProxyPass /komet/mapping https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/mapping
-ProxyPassReverse /komet/mapping https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/mapping
-ProxyPass /komet/komet_dashboard https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/komet_dashboard
-ProxyPassReverse /komet/komet_dashboard https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/komet_dashboard
-ProxyPass /komet/external https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/external
-ProxyPassReverse /komet/external https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/external
+ProxyPass /rails_komet_a/assets https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/assets
+ProxyPassReverse /rails_komet_a/assets https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/assets
+ProxyPass /rails_komet_b/mapping https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPassReverse /rails_komet_a/mapping https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPass /rails_komet_a/komet_dashboard https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPassReverse /rails_komet_a/komet_dashboard https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPass /rails_komet_a/external https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/external
+ProxyPassReverse /rails_komet_a/external https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/external
 
 #Komet (only to web85 for rails_komet_b)
-ProxyPass /komet/assets https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/assets
-ProxyPassReverse /komet/assets https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/assets
-ProxyPass /komet/mapping https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/mapping
-ProxyPassReverse /komet/mapping https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/mapping
-ProxyPass /komet/komet_dashboard https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/komet_dashboard
-ProxyPassReverse /komet/komet_dashboard https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/komet_dashboard
-ProxyPass /komet/external https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/external
-ProxyPassReverse /komet/external https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/external
+ProxyPass /rails_komet_b/assets https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/assets
+ProxyPassReverse /rails_komet_b/assets https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/assets
+ProxyPass /rails_komet_b/mapping https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/mapping
+ProxyPassReverse /rails_komet_b/mapping https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/mapping
+ProxyPass /rails_komet_b/komet_dashboard https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/komet_dashboard
+ProxyPassReverse /rails_komet_b/komet_dashboard https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/komet_dashboard
+ProxyPass /rails_komet_b/external https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/external
+ProxyPassReverse /rails_komet_b/external https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/external
 
 #Prisme
 ProxyPass /rails_prisme/assets https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/assets
@@ -118,12 +118,6 @@ ProxyPassReverse /isaac-rest https://vaauscttweb84.aac.va.gov:8080/isaac-rest
 ProxyPass https://vaauscttweb83.aac.va.gov:8443/nexus
 ProxyPassReverse https://vaauscttweb83.aac.va.gov:8443/nexus
 </Location>
-
-#May not need this...
-#<Location /jenkins>
-#ProxyPass https://vaauscttweb83.aac.va.gov:8080/login
-#ProxyPassReverse https://vaauscttweb83.aac.va.gov:8080/login
-#</Location>
 
 <Location /prisme/>
 ProxyPass https://vaauscttdbs82.aac.va.gov:8080/rails_prisme/
