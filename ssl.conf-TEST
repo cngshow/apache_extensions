@@ -132,8 +132,8 @@ ProxyPassReverse https://vaauscttweb84.aac.va.gov:8080/rails_komet_a/
 
 #Location for komet_b
 <Location /komet_b/>
-ProxyPass https://vaauscttweb84.aac.va.gov:8080/rails_komet_b/
-ProxyPassReverse https://vaauscttweb84.aac.va.gov:8080/rails_komet_b/
+ProxyPass https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/
+ProxyPassReverse https://vaauscttweb85.aac.va.gov:8080/rails_komet_b/
 </Location>
 
 <Location /git/>
