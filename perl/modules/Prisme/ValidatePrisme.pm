@@ -90,7 +90,7 @@ sub rest_call($$) {
 			$logger->error("Returning forbidden due to failure!");
 			return FORBIDDEN;    #return FORBIDDEN code
 		}
-		my @role_names =  @$roles #map { $_->{$CONST::JSON_ROLE_NAME_KEY} } @$roles;
+		my @role_names =  @$roles; #map { $_->{$CONST::JSON_ROLE_NAME_KEY} } @$roles;
 		$cache_hash{'roles'}->{$user_name} = \@role_names;
 		$return_code = allowed( \@role_names,$logger );
 		use warnings;
