@@ -80,7 +80,7 @@ sub rest_call($$) {
 			$res     = $ua->request($req);
 			$content = $res->content;
 			$logger->info("The roles from prisme are: $content");
-			$roles   = $json_decoder_ring->decode($content))->{'roles'};
+			$roles   = $json_decoder_ring->decode($content)->{'roles'};
 		};
 		unless ($roles) {
 			$logger->error("Failed to get Prisme roles!");
