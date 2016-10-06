@@ -80,7 +80,7 @@ sub rest_call($$) {
 			$res     = $ua->request($req);
 			$content = $res->content;
 			$logger->info("The roles from prisme are: $content");
-			$roles   = $json_decoder_ring->decode($content))->{'roles'};
+			$roles   = $json_decoder_ring->decode($content)->{'roles'};
 		};
 		unless ($roles) {
 			$logger->error("Failed to get Prisme roles!");
@@ -90,7 +90,7 @@ sub rest_call($$) {
 			$logger->error("Returning forbidden due to failure!");
 			return FORBIDDEN;    #return FORBIDDEN code
 		}
-		my @role_names =  @$roles #map { $_->{$CONST::JSON_ROLE_NAME_KEY} } @$roles;
+		my @role_names =  @$roles; #map { $_->{$CONST::JSON_ROLE_NAME_KEY} } @$roles;
 		$cache_hash{'roles'}->{$user_name} = \@role_names;
 		$return_code = allowed( \@role_names,$logger );
 		use warnings;
