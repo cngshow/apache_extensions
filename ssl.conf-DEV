@@ -118,12 +118,12 @@ ProxyPass https://vaauscttdbs81.aac.va.gov:8443/nexus
 ProxyPassReverse https://vaauscttdbs81.aac.va.gov:8443/nexus
 </Location>
 
-<Location /prisme/>
+<Location /rails_prisme/>
 ProxyPass https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/
 ProxyPassReverse https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/
 </Location>
 
-<Location /komet/>
+<Location /rails_komet/>
 ProxyPass https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/
 ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/
 </Location>
