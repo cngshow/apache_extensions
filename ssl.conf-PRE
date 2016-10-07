@@ -119,19 +119,19 @@ ProxyPass https://vaausappctt403.aac.va.gov:8443/nexus
 ProxyPassReverse https://vaausappctt403.aac.va.gov:8443/nexus
 </Location>
 
-<Location /prisme/>
+<Location /rails_prisme/>
 ProxyPass https://vaausdbsctt402.aac.va.gov:8080/rails_prisme/
 ProxyPassReverse https://vaausdbsctt402.aac.va.gov:8080/rails_prisme/
 </Location>
 
 #Location for komet_a
-<Location /komet_a/>
+<Location /rails_komet_a/>
 ProxyPass https://vaausappctt404.aac.va.gov:8080/rails_komet_a/
 ProxyPassReverse https://vaausappctt404.aac.va.gov:8080/rails_komet_a/
 </Location>
 
 #Location for komet_b
-<Location /komet_b/>
+<Location /rails_komet_b/>
 ProxyPass https://vaausappctt405.aac.va.gov:8080/rails_komet_b/
 ProxyPassReverse https://vaausappctt405.aac.va.gov:8080/rails_komet_b/
 </Location>
