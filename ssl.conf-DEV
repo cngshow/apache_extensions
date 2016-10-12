@@ -84,7 +84,6 @@ ProxyPass /rails_prisme/users/sign_in https://vaauscttdbs80.aac.va.gov:8080/rail
 ProxyPassReverse /rails_prisme/users/sign_in https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/users/sign_in
 ProxyPass /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
 ProxyPassReverse /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
-ProxyTimeout 1200
 
 #Jenkins - The mapping works ONLY if/when jenkins is moved to /jenkins. Need to check gitblit integration and make sure it does not break things
 ProxyPass /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
