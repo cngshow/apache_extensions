@@ -122,6 +122,7 @@ ProxyPassReverse https://vaausappctt702.aac.va.gov:8443/nexus
 <Location /rails_prisme/>
 ProxyPass https://vaausdbsctt700.aac.va.gov:8080/rails_prisme/
 ProxyPassReverse https://vaausdbsctt700.aac.va.gov:8080/rails_prisme/
+SetEnv proxy-sendchunks 1
 </Location>
 
 #Location for komet_a
