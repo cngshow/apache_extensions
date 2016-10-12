@@ -5,6 +5,7 @@ LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
 
 Listen 443
+Listen 444
 
 SSLProxyEngine On
 ProxyRequests Off
@@ -29,6 +30,69 @@ SSLRandomSeed connect builtin
 SSLCryptoDevice builtin
 #SSLCryptoDevice ubsec
 
+# The virtualhost below 444 is for SSOe
+<VirtualHost _default_:444>
+ErrorLog logs/SSOe-ssl_error_log
+TransferLog logs/SSOe-ssl_access_log
+CustomLog logs/SSOe-ssl_request_log \
+          "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+LogLevel info
+SSLEngine on
+SSLProtocol all -SSLv2
+SSLCipherSuite DEFAULT:!EXP:!SSLv2:!DES:!IDEA:!SEED:+3DES
+SSLCertificateFile /app/certs/server.crt
+SSLCertificateKeyFile /app/certs/server.key
+SSLVerifyClient none
+
+<Files ~ "\.(cgi|shtml|phtml|php3?)$">
+    SSLOptions +StdEnvVars
+</Files>
+
+<Directory "/var/www/cgi-bin">
+    SSLOptions +StdEnvVars
+</Directory>
+
+SetEnvIf User-Agent ".*MSIE.*" \
+         nokeepalive ssl-unclean-shutdown \
+         downgrade-1.0 force-response-1.0
+
+# Special Proxy Mappings
+#
+#Komet
+ProxyPass /rails_komet_a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
+ProxyPassReverse /rails_komet_a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
+ProxyPass /rails_komet_a/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPassReverse /rails_komet_a/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/mapping
+ProxyPass /rails_komet_a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPassReverse /rails_komet_a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/komet_dashboard
+ProxyPass /rails_komet_a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
+ProxyPassReverse /rails_komet_a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
+
+#Prisme
+ProxyPass /rails_prisme/assets https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/assets
+ProxyPassReverse /rails_prisme/assets https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/assets
+ProxyPass /rails_prisme/welcome https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/welcome
+ProxyPassReverse /rails_prisme/welcome https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/welcome
+ProxyPass /rails_prisme/users/sign_in https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/users/sign_in
+ProxyPassReverse /rails_prisme/users/sign_in https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/users/sign_in
+ProxyPass /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
+ProxyPassReverse /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
+
+#Jenkins
+ProxyPass /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
+ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
+
+<Location /manager>
+ProxyPass https://vaauscttweb80.aac.va.gov:8080/manager/
+ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/manager/
+AuthType basic
+AuthBasicAuthoritative Off
+SetEnv proxy-chain-auth On
+</Location>
+
+ProxyPass /isaac-rest https://vaauscttweb80.aac.va.gov:8080/isaac-rest
+ProxyPassReverse /isaac-rest https://vaauscttweb80.aac.va.gov:8080/isaac-rest
+</VirtualHost>
 
 <VirtualHost _default_:443>
 
@@ -85,18 +149,9 @@ ProxyPassReverse /rails_prisme/users/sign_in https://vaauscttdbs80.aac.va.gov:80
 ProxyPass /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
 ProxyPassReverse /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prisme
 
-#Jenkins - The mapping works ONLY if/when jenkins is moved to /jenkins. Need to check gitblit integration and make sure it does not break things
+#Jenkins
 ProxyPass /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
-#ProxyPass /static https://vaauscttdbs81.aac.va.gov:8080/static
-#ProxyPassReverse /static https://vaauscttdbs81.aac.va.gov:8080/static
-#ProxyPass /adjuncts https://vaauscttweb81.aac.va.gov:8080/adjuncts
-#ProxyPassReverse /adjuncts https://vaauscttdbs81.aac.va.gov:8080/adjuncts
-#ProxyPass /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
-#ProxyPassReverse /loginj_acegi_security_check https://vaauscttdbs81.aac.va.gov:8080/loginj_acegi_security_check
-
-#ProxyPass /manager https://vaauscttweb80.aac.va.gov:8080/manager/
-#ProxyPassReverse /manager https://vaauscttweb80.aac.va.gov:8080/manager/
 
 <Location /manager>
 ProxyPass https://vaauscttweb80.aac.va.gov:8080/manager/
