@@ -155,13 +155,13 @@ ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_b/
 #Location for komet_2a
 <Location /rails_komet_2a/>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/rails_komet_2a/
-ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_a/
+ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_2a/
 </Location>
 
 #Location for komet_2b
 <Location /rails_komet_2b/>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/rails_komet_2b/
-ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_b/
+ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_2b/
 </Location>
 
 <Location /git/>
