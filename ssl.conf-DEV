@@ -129,7 +129,7 @@ CustomLog logs/ssl_request_log \
           "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 # Special Proxy Mappings
 #
-#Komet
+#Komet a
 ProxyPass /rails_komet_a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
 ProxyPassReverse /rails_komet_a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/assets
 ProxyPass /rails_komet_a/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/mapping
@@ -138,6 +138,39 @@ ProxyPass /rails_komet_a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/r
 ProxyPassReverse /rails_komet_a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/komet_dashboard
 ProxyPass /rails_komet_a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
 ProxyPassReverse /rails_komet_a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/external
+
+#Komet b
+ProxyPass /rails_komet_b/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/assets
+ProxyPassReverse /rails_komet_b/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/assets
+ProxyPass /rails_komet_b/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/mapping
+ProxyPassReverse /rails_komet_b/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/mapping
+ProxyPass /rails_komet_b/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/komet_dashboard
+ProxyPassReverse /rails_komet_b/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/komet_dashboard
+ProxyPass /rails_komet_b/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/external
+ProxyPassReverse /rails_komet_b/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/external
+
+
+#Komet 2a
+#ProxyPass /rails_komet_2a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/assets
+#ProxyPassReverse /rails_komet_2a/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/assets
+#ProxyPass /rails_komet_2a/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/mapping
+#ProxyPassReverse /rails_komet_2a/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/mapping
+#ProxyPass /rails_komet_2a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/komet_dashboard
+#ProxyPassReverse /rails_komet_a/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/komet_dashboard
+#ProxyPass /rails_komet_2a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/external
+#ProxyPassReverse /rails_komet_2a/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_2a/external
+
+
+#Komet 2b
+#ProxyPass /rails_komet_2b/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/assets
+#ProxyPassReverse /rails_komet_2b/assets https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/assets
+#ProxyPass /rails_komet_2b/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/mapping
+#ProxyPassReverse /rails_komet_2b/mapping https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/mapping
+#ProxyPass /rails_komet_2b/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/komet_dashboard
+#ProxyPassReverse /rails_komet_2b/komet_dashboard https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/komet_dashboard
+#ProxyPass /rails_komet_2b/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/external
+#ProxyPassReverse /rails_komet_2b/external https://vaauscttweb80.aac.va.gov:8080/rails_komet_2b/external
+
 
 #Prisme
 ProxyPass /rails_prisme/assets https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/assets
@@ -179,9 +212,14 @@ ProxyPassReverse https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/
 SetEnv proxy-sendchunks 1
 </Location>
 
-<Location /rails_komet/>
+<Location /rails_komet_a/>
 ProxyPass https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/
 ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/rails_komet_a/
+</Location>
+
+<Location /rails_komet_b/>
+ProxyPass https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/
+ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/rails_komet_b/
 </Location>
 
 <Location /git/>
@@ -189,3 +227,4 @@ ProxyPass https://vaauscttdbs80.aac.va.gov:8080/git/
 ProxyPassReverse https://vaauscttdbs80.aac.va.gov:8080/git/
 </Location>
 
+#This is nothing

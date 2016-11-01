@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gov.vha.isaac.utils</groupId>
+	<artifactId>apache_extensions</artifactId>
+	<version>1.1</version>
+
+	<packaging>pom</packaging>
+
+	<name>Apache Extensions</name>
+
+	<scm>
+		<url>https://vadev.mantech.com:4848/git/summary/apache_extensions.git</url>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>Copyright Notice
+				This is a work of the U.S. Government and is not subject to copyright
+				protection in the United States. Foreign copyrights may apply.
+			</comments>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>U.S. Department of Veterans Affairs</name>
+		<url>www.va.gov</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<properties>
+				<info>For a listing of developers, clone the project and execute 'git shortlog -sn'</info>
+			</properties>
+		</developer>
+	</developers>
+	
+	<issueManagement>
+		<system>Jazz</system>
+		<url>https://clm.rational.oit.va.gov/ccm/web/projects/CTT (CM)</url>
+	</issueManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>zip</id>
+						<goals>
+							<goal>attached</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<descriptors>
+								<descriptor>${basedir}/assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m4.3</version>
+				<configuration>
+					<pushReleases>true</pushReleases>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<scmCommentPrefix>[jgitflow-plugin]</scmCommentPrefix>
+					<enableSshAgent>true</enableSshAgent>
+					<allowSnapshots>false</allowSnapshots>
+					<enableFeatureVersions>true</enableFeatureVersions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
