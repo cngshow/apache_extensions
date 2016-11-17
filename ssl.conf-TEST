@@ -9,6 +9,7 @@ Listen 444
 SSLProxyEngine On
 ProxyRequests Off
 ProxyPreserveHost On
+ProxyTimeout 600
 
 
 SSLPassPhraseDialog  builtin
