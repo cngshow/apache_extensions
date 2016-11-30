@@ -73,10 +73,10 @@ ProxyPassReverse /rails_prisme https://vaauscttdbs82.aac.va.gov:8080/rails_prism
 ProxyPass /jenkins https://vaauscttweb83.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaauscttweb83.aac.va.gov:8080/jenkins
 #ISAAC-REST
-Proxypass /isaac-rest-1 https://vaauscttweb84.aac.va.gov:8080/isaac-rest/
-ProxyPassReverse /isaac-rest-1 https://vaauscttweb84.aac.va.gov:8080/isaac-rest/
-Proxypass /isaac-rest-2 https://vaauscttweb85.aac.va.gov:8080/isaac-rest/
-ProxyPassReverse /isaac-rest-2 https://vaauscttweb85.aac.va.gov:8080/isaac-rest/
+Proxypass /isaac-rest-1 https://vaauscttweb84.aac.va.gov:8080/isaac-rest
+ProxyPassReverse /isaac-rest-1 https://vaauscttweb84.aac.va.gov:8080/isaac-rest
+Proxypass /isaac-rest-2 https://vaauscttweb85.aac.va.gov:8080/isaac-rest
+ProxyPassReverse /isaac-rest-2 https://vaauscttweb85.aac.va.gov:8080/isaac-rest
 </VirtualHost>
 #Rewrite Rules
 #
