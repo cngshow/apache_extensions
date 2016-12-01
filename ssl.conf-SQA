@@ -52,7 +52,7 @@ ProxyPassReverse /rails_komet_a/komet_dashboard https://vaausappctt703.aac.va.go
 ProxyPass /rails_komet_a/external https://vaausappctt703.aac.va.gov:8080/rails_komet_a/external
 ProxyPassReverse /rails_komet_a/external https://vaausappctt703.aac.va.gov:8080/rails_komet_a/external
 #Komet - (only to appctt704 for rails_komet_b)
-ProxyPass /rails_komet/assets https://vaausappctt704.aac.va.gov:8080/rails_komet_b/assets
+ProxyPass /rails_komet_b/assets https://vaausappctt704.aac.va.gov:8080/rails_komet_b/assets
 ProxyPassReverse /rails_komet_b/assets https://vaausappctt704.aac.va.gov:8080/rails_komet_b/assets
 ProxyPass /rails_komet_b/mapping https://vaausappctt704.aac.va.gov:8080/rails_komet_b/mapping
 ProxyPassReverse /rails_komet_b/mapping https://vaausappctt704.aac.va.gov:8080/rails_komet_b/mapping
