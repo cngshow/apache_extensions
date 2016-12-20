@@ -4,8 +4,14 @@ This changelog summarizes changes and fixes which are a part of each revision.  
 where provided, and the git commit history.  Note that this repository contains system configuration files - not software that is 
 deployed.
 
-* 2016/11/?? - 1.2: 
-    * 
+* 2016/11/13 - 1.4: 
+    * Added missing yaml files
+
+* 2016/12/02 - 1.3: 
+    * Config updates
+    
+* 2016/11/17 - 1.2: 
+    * Config updates
 
 * 2016/11/03 - 1.1: 
     * See the GIT changelog for updates prior to this release.
