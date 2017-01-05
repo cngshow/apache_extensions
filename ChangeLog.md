@@ -4,6 +4,11 @@ This changelog summarizes changes and fixes which are a part of each revision.  
 where provided, and the git commit history.  Note that this repository contains system configuration files - not software that is 
 deployed.
 
+* 2017/01/05 - 1.5: 
+    * Changes to be committed:proxy-multiple instances
+    * modified:ssl.conf-DEV
+    * modified:server_config.yml-DEV
+    
 * 2016/11/13 - 1.4: 
     * Added missing yaml files
 
