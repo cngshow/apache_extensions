@@ -4,6 +4,9 @@ This changelog summarizes changes and fixes which are a part of each revision.  
 where provided, and the git commit history.  Note that this repository contains system configuration files - not software that is 
 deployed.
 
+* 2017/01/?? - 1.7 - PENDING 
+    *
+
 * 2017/01/19 - 1.6 
     * Changes to be committed:multi-deploy
     * New file:server_config.yml-SQA-multi-deploy
