@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9,10" ></meta>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VA CTTDM</title>
+
+<!-- Styles -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="height:100px;" role="navigation">
+              <div class="container">
+<div class="navbar-header">
+       <a class="navbar-brand" href="#" align="left">
+       <img src="assets/img/US_Department_of_Veterans_Affairs_logo.svg.png" alt="logo" />
+       </a>
+
+  </div>
+   </div>
+</nav>
+    <!-- End Navbar-->
+        <div class="hero-unit landing">
+
+        <div class="container">
+           <div class="row">
+           <div class="col-md-4 bgTax">
+                </div>
+        <div class="col-md-7">
+                    <h1>VA-CTT PRISME</h1>
+                     <p> If you are using government computer and are logged onto the VA network, this means you are utilizing the applications single sign-on internal (SSOi).</p><p>
+ Proceed by clicking the button below to access PRISME.
+
+                      Once there, you will also have access to KOMET.  Read more about these tools below.</p>
+                      <p></p>
+                  <p>
+<a href="https://vaauscttweb82.aac.va.gov/rails_prisme/" class="btn btn-lg btn-info">Launch PRISME (Test)<span class="glyphicon glyphicon-chevron-right"></span></a>                    </p>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!-- End Hero Unit-->
+    <div class="hero-pattern">
+        <div class="container">
+            <span class="orange"></span>
+            <span class="green"></span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row landing-tips">
+            <div class="col-sm-4">
+                <h3>PRISME</h3>
+
+                <p>
+                  Project Information System and Management Environment : For use by Developers and Managers to administer the development environment by creating an Integrated Development Environment (IDE).
+
+                </p>
+
+            </div>
+            <div class="col-sm-4">
+                <h3>KOMET</h3>
+
+                <p>
+                   KOMET (Knowledge Management Environment), also known as ISAAC is your VA Taxonomy browser and terminology collaborative authoring tool.  Other key features include displaying and editing VHAT and SDO concepts and mapping clincial terms.
+
+                </p>
+<!--  Need to add about link or such here
+<p>Acknowledgements are provided for contributions by Empirical UX (http://empiricalux.com)) for Informatics in looking for ways to improve the workbench in terms of design and development.</p>  -->
+          </div>
+            <div class="col-sm-3">
+                <img src="assets/img/flat-help.png" alt="icon" />
+                <h3>User Guide</h3>
+
+                <p>
+                    Get tips on getting started, configuring, administration and using <a href="">PRISME</a> and <a href="">KOMET</a>.
+
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+<div class="footer-lower">
+        <div class="container">
+                <div class="row">
+                        <p class="span6 copy">
+                        U.S. Department of Veterans Affairs 2016         &copy;
+                        </p>
+        </div>
+</div>
+</div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</body>
+</html>
