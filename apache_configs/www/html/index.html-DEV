@@ -33,7 +33,7 @@
         <div class="col-md-7">
                     <h1>VA-CTT PRISME</h1>
                      <p> If you are using government computer and are logged onto the VA network, this means you are utilizing the applications single sign-on internal (SSOi).</p><p>
- Proceed by clicking the button below to access PRISME.
+Proceed by clicking the button below to access PRISME.
 
                       Once there, you will also have access to KOMET.  Read more about these tools below.</p>
                       <p></p>
@@ -56,16 +56,16 @@
     </div>
     <div class="container">
         <div class="row landing-tips">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <h3>PRISME</h3>
 
                 <p>
-                  Project Information System and Management Environment : For use by Developers and Managers to administer the development environment by creating an Integrated Development Environment (IDE).
+                  Project Information System and Management Environment : For use by Developers and Managers to administer environments by creating an Integrated Development Environment (IDE).
 
                 </p>
 
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <h3>KOMET</h3>
 
                 <p>
@@ -80,11 +80,21 @@
                 <h3>User Guide</h3>
 
                 <p>
-                    Get tips on getting started, configuring, administration and using <a href="">PRISME</a> and <a href="">KOMET</a>.
+                    Get tips on getting started, configuring, administration and using <a href="CTTDM_User_Manual.pdf" target="_blank">PRISME and KOMET</a>.
 
                 </p>
 
             </div>
+            <div class="col-sm-2">
+                <h3>Additional Documentation</h3>
+
+                <p>
+                     For all official documentation on CTT go to Rational's <a href="https://clm.rational.oit.va.gov/ccm/web/projects/CTT%20(CM)#action=com.ibm.team.scm.browseElement&workspaceItemId=_gtUVoOl_EeaKzLtos-NtKQ&componentItemId=_g1zjQul_EeaKzLtos-NtKQ&path=/" target="_blank">Jazz Site</a>.
+
+                </p>
+
+            </div>
+
         </div>
     </div>
 
