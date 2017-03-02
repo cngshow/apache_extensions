@@ -4,6 +4,8 @@ This changelog summarizes changes and fixes which are a part of each revision.  
 where provided, and the git commit history.  Note that this repository contains system configuration files - not software that is 
 deployed.
 
+* 2017/03/?? - 1.9 - PENDING
+
 * 2017/03/02 - 1.8
     * updates to server index pages
     * updates to cleanup multi-deploy config files
