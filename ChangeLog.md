@@ -4,6 +4,9 @@ This changelog summarizes changes and fixes which are a part of each revision.  
 where provided, and the git commit history.  Note that this repository contains system configuration files - not software that is 
 deployed.
 
+* 2017/??/?? - 1.10 - PENDING
+	* 
+
 * 2017/03/21 - 1.9
 	* renamed:server_config.yml-PRE -> server_config.yml-PRE-R2
     * renamed:server_config.yml-PROD -> server_config.yml-PROD-R2
