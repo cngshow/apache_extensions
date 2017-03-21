@@ -4,6 +4,13 @@ This changelog summarizes changes and fixes which are a part of each revision.  
 where provided, and the git commit history.  Note that this repository contains system configuration files - not software that is 
 deployed.
 
+* 2017/03/21 - 1.9
+	* renamed:server_config.yml-PRE -> server_config.yml-PRE-R2
+    * renamed:server_config.yml-PROD -> server_config.yml-PROD-R2
+    * renamed:ssl.conf-PRE -> ssl.conf-PRE-R2
+    * renamed:ssl.conf-PROD -> ssl.conf-PROD-R2
+    * Production build for Release 3
+
 * 2017/03/02 - 1.8
     * updates to server index pages
     * updates to cleanup multi-deploy config files
