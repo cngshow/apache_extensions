@@ -21,7 +21,7 @@ proxy_config_root:
    - incoming_url_path: https://vaausappctt405.aac.va.gov:8080/rails_komet_b/ #this is like our incoming url
      proxy_location: /5/rails_komet_b/
    - incoming_url_path: https://vaausappctt405.aac.va.gov:8080/rails_komet_c/ #this is like our incoming url
-     proxy_location: /6/rails_komet_c/ 
+     proxy_location: /6/rails_komet_c/
    - incoming_url_path: https://vaausdbsctt402.aac.va.gov:8080/manager/ #We play with this one
      proxy_location: /manager
    - incoming_url_path: https://vaausdbsctt402.aac.va.gov:8080/git/ #this is like our incoming url
