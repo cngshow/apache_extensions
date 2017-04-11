@@ -64,7 +64,7 @@ ProxyPassReverse /1/rails_komet_a/external https://vaausappctt204.aac.va.gov:808
 ProxyPass /2/rails_komet_b/assets https://vaausappctt204.aac.va.gov:8080/rails_komet_b/assets
 ProxyPassReverse /2/rails_komet_b/assets https://vaausappctt204.aac.va.gov:8080/rails_komet_b/assets
 ProxyPass /2/rails_komet_b/mapping https://vaausappctt204.aac.va.gov:8080/rails_komet_b/mapping
-ProxyPassReverse /2/rails_komet_a/mapping https://vaausappctt204.aac.va.gov:8080/rails_komet_b/mapping
+ProxyPassReverse /2/rails_komet_b/mapping https://vaausappctt204.aac.va.gov:8080/rails_komet_b/mapping
 ProxyPass /2/rails_komet_b/komet_dashboard https://vaausappctt204.aac.va.gov:8080/rails_komet_b/komet_dashboard
 ProxyPassReverse /2/rails_komet_b/komet_dashboard https://vaausappctt204.aac.va.gov:8080/rails_komet_b/komet_dashboard
 ProxyPass /2/rails_komet_b/external https://vaausappctt204.aac.va.gov:8080/rails_komet_b/external
