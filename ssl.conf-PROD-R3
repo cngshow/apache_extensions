@@ -72,13 +72,13 @@ ProxyPassReverse /2/rails_komet_b/external https://vaausappctt204.aac.va.gov:808
 
 #Komet (only to appctt204 for rails_komet_c)
 ProxyPass /3/rails_komet_c/assets https://vaausappctt204.aac.va.gov:8080/rails_komet_c/assets
-ProxyPassReverse /3/rails_komet_a/assets https://vaausappctt204.aac.va.gov:8080/rails_komet_c/assets
-ProxyPass /3/rails_komet_a/mapping https://vaausappctt204.aac.va.gov:8080/rails_komet_c/mapping
-ProxyPassReverse /3/rails_komet_a/mapping https://vaausappctt204.aac.va.gov:8080/rails_komet_c/mapping
-ProxyPass /3/rails_komet_a/komet_dashboard https://vaausappctt204.aac.va.gov:8080/rails_komet_c/komet_dashboard
-ProxyPassReverse /3/rails_komet_a/komet_dashboard https://vaausappctt204.aac.va.gov:8080/rails_komet_c/komet_dashboard
-ProxyPass /3/rails_komet_a/external https://vaausappctt204.aac.va.gov:8080/rails_komet_c/external
-ProxyPassReverse /3/rails_komet_a/external https://vaausappctt204.aac.va.gov:8080/rails_komet_c/external
+ProxyPassReverse /3/rails_komet_c/assets https://vaausappctt204.aac.va.gov:8080/rails_komet_c/assets
+ProxyPass /3/rails_komet_c/mapping https://vaausappctt204.aac.va.gov:8080/rails_komet_c/mapping
+ProxyPassReverse /3/rails_komet_c/mapping https://vaausappctt204.aac.va.gov:8080/rails_komet_c/mapping
+ProxyPass /3/rails_komet_c/komet_dashboard https://vaausappctt204.aac.va.gov:8080/rails_komet_c/komet_dashboard
+ProxyPassReverse /3/rails_komet_c/komet_dashboard https://vaausappctt204.aac.va.gov:8080/rails_komet_c/komet_dashboard
+ProxyPass /3/rails_komet_c/external https://vaausappctt204.aac.va.gov:8080/rails_komet_c/external
+ProxyPassReverse /3/rails_komet_c/external https://vaausappctt204.aac.va.gov:8080/rails_komet_c/external
 
 #Komet - (only to appctt205 for rails_komet_a)
 ProxyPass /4/rails_komet_a/assets https://vaausappctt205.aac.va.gov:8080/rails_komet_a/assets
@@ -132,37 +132,37 @@ ProxyPassReverse /isaac-rest-2 https://vaausappctt205.aac.va.gov:8080/isaac-rest
 #Rewrite Rules
 # for appctt404
 <Location /1/isaac-rest>
-ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest
+ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_1
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt404
 <Location /2/isaac-rest>
-ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest
+ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_2
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt404
 <Location /3/isaac-rest>
-ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest
+ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_3
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt405
 <Location /4/isaac-rest>
-ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest
+ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_1
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt405
 <Location /5/isaac-rest>
-ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest
+ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_2
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt405
 <Location /6/isaac-rest>
-ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest
+ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_3
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </Location>
 
