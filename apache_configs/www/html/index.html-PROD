@@ -38,7 +38,7 @@ Proceed by clicking the button below to access PRISME.
                       Once there, you will also have access to KOMET.  Read more about these tools below.</p>
                       <p></p>
                   <p>
-<a href="https://vaausappctt202.aac.va.gov/rails_prisme/" class="btn btn-lg btn-info">Launch PRISME (Dev)<span class="glyphicon glyphicon-chevron-right"></span></a>                    </p>
+<a href="https://vaausappctt202.aac.va.gov/rails_prisme/" class="btn btn-lg btn-info">Launch PRISME (Production)<span class="glyphicon glyphicon-chevron-right"></span></a>                    </p>
 
 
 
