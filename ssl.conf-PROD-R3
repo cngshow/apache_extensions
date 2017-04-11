@@ -130,37 +130,37 @@ ProxyPassReverse /isaac-rest-2 https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </VirtualHost>
 
 #Rewrite Rules
-# for appctt404
+# for appctt204
 <Location /1/isaac-rest>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_1
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
-# for appctt404
+# for appctt204
 <Location /2/isaac-rest>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_2
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
-# for appctt404
+# for appctt204
 <Location /3/isaac-rest>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_3
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
-# for appctt405
+# for appctt205
 <Location /4/isaac-rest>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_1
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </Location>
 
-# for appctt405
+# for appctt205
 <Location /5/isaac-rest>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_2
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </Location>
 
-# for appctt405
+# for appctt205
 <Location /6/isaac-rest>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_3
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
