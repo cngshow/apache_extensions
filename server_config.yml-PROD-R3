@@ -14,7 +14,7 @@ proxy_config_root:
      proxy_location: /1/rails_komet_a/
    - incoming_url_path: https://vaausappctt204.aac.va.gov:8080/rails_komet_b/
      proxy_location: /2/rails_komet_b/
-   - incoming_url_path: https://vaausappctt204aac.va.gov:8080/rails_komet_c/
+   - incoming_url_path: https://vaausappctt204.aac.va.gov:8080/rails_komet_c/
      proxy_location: /3/rails_komet_c/
    - incoming_url_path: https://vaausappctt205.aac.va.gov:8080/rails_komet_a/ #this is like our incoming url
      proxy_location: /4/rails_komet_a/
