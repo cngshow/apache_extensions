@@ -7,7 +7,7 @@ proxy_config_root:
  proxy_urls:
    - incoming_url_path: https://vaauscttdbs81.aac.va.gov:8443/nexus #this is like our incoming url
      proxy_location: /nexus
-   - incoming_url_path: https://vauscttdbs81.aac.va.gov:8080/jenkins #this is like our incoming url
+   - incoming_url_path: https://vaauscttdbs81.aac.va.gov:8080/jenkins #this is like our incoming url
      proxy_location: /jenkins
    - incoming_url_path: https://vaauscttdbs80.aac.va.gov:8080/rails_prisme/ #this is like our incoming url
      proxy_location: /rails_prisme/
