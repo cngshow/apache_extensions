@@ -4,7 +4,9 @@ This changelog summarizes changes and fixes which are a part of each revision.  
 where provided, and the git commit history.  Note that this repository contains system configuration files - not software that is 
 deployed.
 
-* 2017/??/?? - 1.10 - PENDING
+THIS IS THE RELEASE 3 BRANCH
+
+* 2017/??/?? - 3.0 - PENDING
 	* 
 
 * 2017/03/21 - 1.9
