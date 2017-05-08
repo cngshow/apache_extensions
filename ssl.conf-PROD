@@ -172,6 +172,7 @@ ProxyPassReverse https://vaausappctt203.aac.va.gov:8443/nexus
 </Location>
 
 <Location /rails_prisme/>
+RequestHeader set apache_time "%D,%t"
 ProxyPass https://vaausdbsctt202.aac.va.gov:8080/rails_prisme/
 ProxyPassReverse https://vaausdbsctt202.aac.va.gov:8080/rails_prisme/
 SetEnv proxy-sendchunks 1
