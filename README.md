@@ -160,7 +160,6 @@ ProxyPassReverse / https://vaservername:4848
 # http://httpd.apache.org/docs/2.4/upgrading.html#run-time
 
 
-...
 
 
 
