@@ -94,7 +94,7 @@ and that it contains the perl module 'ValidatePrisme.pm'
 ValidatePrisme.pm needs the following software installed, (keep in mind 'install' might not be required):
 ```
 cpan install LWP
-cpan install JSON
+cpan install JSON::Parse
 ```
 
 There is a file called constants.pl, you must add it in httpd.conf:
@@ -158,6 +158,12 @@ ProxyPassReverse / https://vaservername:4848
 
 # Need to research Access Control for the version of httpd we are running in the VAservers:
 # http://httpd.apache.org/docs/2.4/upgrading.html#run-time
+
+
+
+
+
+
 
 
 
