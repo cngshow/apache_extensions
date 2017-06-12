@@ -234,6 +234,10 @@ ProxyPassReverse /rails_prisme https://vaauscttdbs80.aac.va.gov:8080/rails_prism
 ProxyPass /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaauscttdbs81.aac.va.gov:8080/jenkins
 
+#Jira
+ProxyPass /ntrt https://vaauscttdbs81.aac.va.gov:8088/ntrt
+ProxyPassReverse /ntrt https://vaauscttdbs81.aac.va.gov:8088/ntrt
+
 <Location /manager>
 ProxyPass https://vaauscttweb80.aac.va.gov:8080/manager/
 ProxyPassReverse https://vaauscttweb80.aac.va.gov:8080/manager/
