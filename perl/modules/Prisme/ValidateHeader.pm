@@ -33,7 +33,7 @@ sub allowed($$$) {
 	my $configured_roles = $context_roles eq '' ? $CONST::DEFAULT_ROLES : $context_roles;
 	my $role_string = join(',', @$configured_roles);
 	$logger->info("The required roles are $role_string for context $context");
-	foreach my $e (@role_names, @$configured_roles) {
+	foreach my $e (map {lc} @role_names, map {lc} @$configured_roles) {
 		$union{$e}++ && $isect{$e}++;
 	}
 	use warnings;
