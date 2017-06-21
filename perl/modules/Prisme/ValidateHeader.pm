@@ -9,6 +9,7 @@ use Apache2::RequestRec;
 use APR::Table;
 use Apache2::URI();
 use APR::URI();
+use Apache2::RequestIO ();
 #require 'constants.pl';# done in http.conf
 use LWP::UserAgent;
 use URI;
@@ -142,7 +143,14 @@ sub handler {
 
 	if($user) {
 		my $val = rest_call($user,$context, $r->log);
-		$r->log->info("Request end on pid $$: The user for this request is $user");
+		my $roles = $cache_hash{'roles'}->{$user};
+		my $role_string = join(',', @$roles);
+		$r->headers_in->set('prisme-roles'=> $role_string );
+		#$r->headers_out->add('prisme.roles2'=> $role_string );
+		#	$r->err_headers_in->add('prisme-roles2', $role_string);
+		#$|++;
+		#$r->rflush();# $r->rflush can't be called before the response phase if using PerlFixupHandler Prisme::ValidateHeader
+		$r->log->info("Request end on pid $$: The user for this request is $user, the roles are $role_string, returning $val");
 		return $val; #OK or FORBIDDEN
 	}
 	else {
@@ -152,8 +160,8 @@ sub handler {
 			$r->log->info("Request end on pid $$: Just an image request OK.");
 			return OK;
 		} else {
-			return FORBIDDEN;
 			$r->log->info("Request end on pid $$: There is no user. Forbidden.");
+			return FORBIDDEN;
 		}
 	}
 
