@@ -126,6 +126,12 @@ sub apr_iterator($$) {
 sub handler {
 	my $r = shift;
 	my $context = (grep {$_ ne ''} split('/', $r->parsed_uri()->rpath))[0];
+	my $path_info = $r->path_info();
+	$r->log->info("path info is $path_info");
+	my $request_type =  (split('\.', (grep {$_ ne ''} split('/', $r->parsed_uri()->rpath))[-1]))[-1]; #something like 'js' or 'css'
+	my $auto_accept = grep {$_ eq $request_type} @$CONST::AUTO_ACCEPT;
+	#my $last_path = (grep {$_ ne ''} split('/', $r->parsed_uri()->rpath))[-1]; #something like batch.css
+	#$r->log->info("request_type is $request_type");
 	if ($CONST::LOG_HEADERS) {
 		$r->log->info("PID: DATA: -----------------------------------------------------------------");
 		#$r->headers_in()->do("apr_iterator");
@@ -137,9 +143,10 @@ sub handler {
 		$r->log->warn("In accept all requests mode! $$");
 		return OK;
 	}
-	my $accept = $r->headers_in->get('Accept');
+	#my $accept = $r->headers_in->get('Accept');
 	my $user = $r->headers_in->get('ADSAMACCOUNTNAME');
 	$r->log->info("Request start on pid $$: The user for this request is $user");
+	#$r->log->info("Request start on pid $$: The accept header is $accept");
 
 	if($user) {
 		my $val = rest_call($user,$context, $r->log);
@@ -154,10 +161,10 @@ sub handler {
 		return $val; #OK or FORBIDDEN
 	}
 	else {
-		if ($accept =~ /image\/png/) {
+		if ($auto_accept) {
 			# we accept if the request is strictly an image request.
 			#Accept => image/png,
-			$r->log->info("Request end on pid $$: Just an image request OK.");
+			$r->log->info("Request end on pid $$: Just a(n) $request_type request OK.");
 			return OK;
 		} else {
 			$r->log->info("Request end on pid $$: There is no user. Forbidden.");

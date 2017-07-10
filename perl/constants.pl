@@ -12,4 +12,5 @@ $DEFAULT_ROLES = ['super_user','administrator']; # If the context is not listed 
 $CGI_USER_NAME = 'id';
 $LOG_HEADERS=0; #0 is false 1 is true, logs at the info log level.
 $ACCEPT_ALL_REQUESTS=0; #if 0 works as expected (role validation occurs), if 1 role validation is disabled
+$AUTO_ACCEPT=['css','js','png','image','jpg','jpeg','class','gif','fcc','scc','sfcc','ccc','ntc', 'ico','map','eot'];#requests of this type will be auto accepted (they will never be forbidden), so http://www.foo.com/faa/fi.js would be accepted.
 1;
