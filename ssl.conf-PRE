@@ -119,9 +119,15 @@ ProxyPass /rails_prisme/users/sign_in https://vaausdbsctt402.aac.va.gov:8080/rai
 ProxyPassReverse /rails_prisme/users/sign_in https://vaausdbsctt402.aac.va.gov:8080/rails_prisme/users/sign_in
 ProxyPass /rails_prisme https://vaausdbsctt402.aac.va.gov:8080/rails_prisme
 ProxyPassReverse /rails_prisme https://vaausdbsctt402.aac.va.gov:8080/rails_prisme
+
 #Jenkins 
 ProxyPass /jenkins https://vaausappctt403.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaausappctt403.aac.va.gov:8080/jenkins
+
+#Jira
+ProxyPass /ntrt https://vaausappctt403.aac.va.gov:8088/ntrt
+ProxyPassReverse /ntrt https://vaausappctt403.aac.va.gov:8088/ntrt
+
 #ISAAC-REST 
 Proxypass /isaac-rest-1 https://vaausappctt404.aac.va.gov:8080/isaac-rest
 ProxyPassReverse /isaac-rest-1 https://vaausappctt404.aac.va.gov:8080/isaac-rest
