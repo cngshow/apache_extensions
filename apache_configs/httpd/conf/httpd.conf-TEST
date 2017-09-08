@@ -1076,3 +1076,7 @@ PerlRequire /etc/httpd/scripts/constants.pl
 <Location /jenkins/>
   PerlFixupHandler Prisme::ValidateHeader
 </Location>
+
+<Location /ntrt/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
