@@ -1050,3 +1050,21 @@ DocumentRoot /var/www/html
 Redirect permanent / https://vaausappctt402.aac.va.gov/
 SSLVerifyClient none
 </VirtualHost>
+
+PerlRequire /etc/httpd/scripts/startup.pl
+PerlRequire /etc/httpd/scripts/constants.pl
+<Location /git/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
+
+<Location /nexus/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
+
+<Location /jenkins/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
+
+<Location /ntrt/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
