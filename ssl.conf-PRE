@@ -135,6 +135,14 @@ Proxypass /isaac-rest-2 https://vaausappctt405.aac.va.gov:8080/isaac-rest
 ProxyPassReverse /isaac-rest-2 https://vaausappctt405.aac.va.gov:8080/isaac-rest
 </VirtualHost>
 
+#Jira - NTRT
+ProxyPass /ntrt https://vaausappctt403.aac.va.gov:8088/ntrt
+ProxyPassReverse /ntrt https://vaausappctt403.aac.va.gov:8088/ntrt
+ProxyPass /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
+ProxyPassReverse /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
+ProxyPass /ntrt/projects/NTRT/queues/custom https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
+ProxyPassReverse /ntrt/projects/NTRT/queues/custom https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
+
 #Rewrite Rules
 # for appctt404
 <Location /1/isaac-rest>

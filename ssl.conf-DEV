@@ -251,6 +251,14 @@ ProxyPassReverse /isaac-rest https://vaauscttweb80.aac.va.gov:8080/isaac-rest
 #ProxyPass /isaac-rest/rest/1/export https://vaauscttweb80.aac.va.gov:8080/isaac-rest/isaac-rest/rest/1/export/vetsXML
 #ProxyPassReverse /isaac-rest/rest/1/export https://vaauscttweb80.aac.va.gov:8080/isaac-rest/isaac-rest/rest/1/export/vetsXML
 
+#Jira - NTRT
+ProxyPass /ntrt https://vaauscttdbs81.aac.va.gov:8088/ntrt
+ProxyPassReverse /ntrt https://vaauscttdbs81.aac.va.gov:8088/ntrt
+ProxyPass /ntrt/projects/NTRT/queues/custom/8 https://vaauscttdbs81.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
+ProxyPassReverse /ntrt/projects/NTRT/queues/custom/8 https://vaauscttdbs81.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
+ProxyPass /ntrt/projects/NTRT/queues/custom https://vaauscttdbs81.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
+ProxyPassReverse /ntrt/projects/NTRT/queues/custom https://vaauscttdbs81.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
+
 </VirtualHost>
 
 #Rewrite Rules
