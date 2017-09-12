@@ -103,6 +103,7 @@ ProxyPassReverse /rails_prisme https://vaausdbsctt700.aac.va.gov:8080/rails_pris
 #Jenkins
 ProxyPass /jenkins https://vaausappctt702.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaausappctt702.aac.va.gov:8080/jenkins
+
 #ISAAC-REST
 Proxypass /isaac-rest-1 https://vaausappctt703.aac.va.gov:8080/isaac-rest
 ProxyPassReverse /isaac-rest-1 https://vaausappctt703.aac.va.gov:8080/isaac-rest
@@ -116,8 +117,8 @@ ProxyPass /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt702.aac.va.gov:
 ProxyPassReverse /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt702.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
 ProxyPass /ntrt/projects/NTRT/queues/custom https://vaausappctt702.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
 ProxyPassReverse /ntrt/projects/NTRT/queues/custom https://vaausappctt702.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
-
 </VirtualHost>
+
 #Rewrite Rules
 #
 # for 703
