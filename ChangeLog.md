@@ -6,8 +6,8 @@ deployed.
 
 THIS IS THE DEVEOPMENT BRANCH
 
-* 2017/??/?? - 4.0 - PENDING
-	* 
+* 2017/09/12 - 5.1
+	* All configuration changes required for release 5 - including NTRT, etc, and new ansible scripts to ease deployments.
 
 * 2017/03/21 - 1.9
 	* renamed:server_config.yml-PRE -> server_config.yml-PRE-R2
