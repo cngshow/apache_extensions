@@ -124,16 +124,16 @@ ProxyPassReverse /rails_prisme https://vaausdbsctt202.aac.va.gov:8080/rails_pris
 ProxyPass /jenkins https://vaausappctt203.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaausappctt203.aac.va.gov:8080/jenkins
 
-#Jira
-ProxyPass /ntrt https://vaausappctt203.aac.va.gov:8088/ntrt
-ProxyPassReverse /ntrt https://vaausappctt203.aac.va.gov:8088/ntrt
+
+
+
 
 #ISAAC-REST 
 ProxyPass /isaac-rest-1 https://vaausappctt204.aac.va.gov:8080/isaac-rest
 ProxyPassReverse /isaac-rest-1 https://vaausappctt204.aac.va.gov:8080/isaac-rest
 Proxypass /isaac-rest-2 https://vaausappctt205.aac.va.gov:8080/isaac-rest
 ProxyPassReverse /isaac-rest-2 https://vaausappctt205.aac.va.gov:8080/isaac-rest
-</VirtualHost>
+
 
 #Jira - NTRT
 ProxyPass /ntrt https://vaausappctt203.aac.va.gov:8088/ntrt
@@ -142,39 +142,46 @@ ProxyPass /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt203.aac.va.gov:
 ProxyPassReverse /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt203.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
 ProxyPass /ntrt/projects/NTRT/queues/custom https://vaausappctt203.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
 ProxyPassReverse /ntrt/projects/NTRT/queues/custom https://vaausappctt203.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
+</VirtualHost>
 
 #Rewrite Rules
 # for appctt204
+
 <Location /1/isaac-rest>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_1
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt204
+
 <Location /2/isaac-rest>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_2
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt204
+
 <Location /3/isaac-rest>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/isaac-rest_3
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt205
+
 <Location /4/isaac-rest>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_1
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt205
+
 <Location /5/isaac-rest>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_2
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
 </Location>
 
 # for appctt205
+
 <Location /6/isaac-rest>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/isaac-rest_3
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/isaac-rest
@@ -196,6 +203,8 @@ SetEnv proxy-sendchunks 1
 <Location /1/rails_komet_a/>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/rails_komet_a/
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/rails_komet_a/
+
+
 </Location>
 
 #Location for appctt404 komet_b
@@ -208,12 +217,16 @@ ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/rails_komet_b/
 <Location /3/rails_komet_c/>
 ProxyPass https://vaausappctt204.aac.va.gov:8080/rails_komet_c/
 ProxyPassReverse https://vaausappctt204.aac.va.gov:8080/rails_komet_c/
+
+
 </Location>
 
 #Location for appctt405 komet_a
 <Location /4/rails_komet_a/>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/rails_komet_a/
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_a/
+
+
 </Location>
 
 #Location for appctt405 komet_b
@@ -226,6 +239,8 @@ ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_b/
 <Location /6/rails_komet_c/>
 ProxyPass https://vaausappctt205.aac.va.gov:8080/rails_komet_c/
 ProxyPassReverse https://vaausappctt205.aac.va.gov:8080/rails_komet_c/
+
+
 </Location>
 
 <Location /git/>
