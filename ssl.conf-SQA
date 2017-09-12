@@ -120,8 +120,8 @@ ProxyPassReverse /ntrt/projects/NTRT/queues/custom https://vaausappctt702.aac.va
 </VirtualHost>
 
 #Rewrite Rules
-#
-# for 703
+## for 703
+
 <Location /1/isaac-rest>
 ProxyPass https://vaausappctt703.aac.va.gov:8080/isaac-rest_1
 ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/isaac-rest
