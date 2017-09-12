@@ -149,11 +149,14 @@ MaxRequestsPerChild  0
 Listen 80
 <VirtualHost *:80>
 ServerName vaauscttweb81.aac.va.gov
-Redirect permanent / https://vaauscttweb81.aac.va.gov/
+
+
 DocumentRoot /var/www/html
+Redirect permanent / https://vaauscttweb81.aac.va.gov/
 #SSLProxyEngine On
 ProxyRequests Off
 ProxyPreserveHost On
+SSLVerifyClient none
 </VirtualHost>
 
 
@@ -1075,5 +1078,9 @@ PerlRequire /etc/httpd/scripts/constants.pl
 </Location>
 
 <Location /jenkins/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
+
+<Location /ntrt/>
   PerlFixupHandler Prisme::ValidateHeader
 </Location>

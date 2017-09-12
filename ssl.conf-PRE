@@ -122,11 +122,21 @@ ProxyPassReverse /rails_prisme https://vaausdbsctt402.aac.va.gov:8080/rails_pris
 #Jenkins 
 ProxyPass /jenkins https://vaausappctt403.aac.va.gov:8080/jenkins
 ProxyPassReverse /jenkins https://vaausappctt403.aac.va.gov:8080/jenkins
+
 #ISAAC-REST 
-Proxypass /isaac-rest-1 https://vaausappctt404.aac.va.gov:8080/isaac-rest
+ProxyPass /isaac-rest-1 https://vaausappctt404.aac.va.gov:8080/isaac-rest
 ProxyPassReverse /isaac-rest-1 https://vaausappctt404.aac.va.gov:8080/isaac-rest
 Proxypass /isaac-rest-2 https://vaausappctt405.aac.va.gov:8080/isaac-rest
 ProxyPassReverse /isaac-rest-2 https://vaausappctt405.aac.va.gov:8080/isaac-rest
+
+#Jira - NTRT
+ProxyPass /ntrt https://vaausappctt403.aac.va.gov:8088/ntrt
+ProxyPassReverse /ntrt https://vaausappctt403.aac.va.gov:8088/ntrt
+ProxyPass /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
+ProxyPassReverse /ntrt/projects/NTRT/queues/custom/8 https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom/8
+ProxyPass /ntrt/projects/NTRT/queues/custom https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
+ProxyPassReverse /ntrt/projects/NTRT/queues/custom https://vaausappctt403.aac.va.gov:8088/ntrt/projects/NTRT/queues/custom
+
 </VirtualHost>
 
 #Rewrite Rules

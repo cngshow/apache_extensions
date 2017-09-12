@@ -19,8 +19,6 @@ proxy_config_root:
      proxy_location: /manager
    - incoming_url_path: https://vaauscttdbs80.aac.va.gov:8080/git/ #this is like our incoming url
      proxy_location: /git/
-   - incoming_url_path: https://vaauscttweb80.aac.va.gov:8080/isaac-rest
-     proxy_location: /isaac-rest
    - incoming_url_path: https://vaauscttweb80.aac.va.gov:8080/isaac-rest_1
      proxy_location: /1/isaac-rest
    - incoming_url_path: https://vaauscttweb80.aac.va.gov:8080/isaac-rest_2

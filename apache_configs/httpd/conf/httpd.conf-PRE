@@ -134,7 +134,31 @@ MaxRequestsPerChild  0
 # prevent Apache from glomming onto all bound IP addresses (0.0.0.0)
 #
 #Listen 12.34.56.78:80
+#Listen 80
+
+#<VirtualHost *:80>
+#ServerName vaauscttweb81.aac.va.gov
+#DocumentRoot /var/www/html
+#SSLProxyEngine On
+#ProxyRequests Off
+#ProxyPreserveHost On
+#ProxyPass        / http://vaauscttweb81.aac.va.gov:8080
+#ProxyPassReverse / http://vaauscttweb81.aac.va.gov:8080
+#</VirtualHost>
+
 Listen 80
+<VirtualHost *:80>
+ServerName vaausappctt402.aac.va.gov
+
+
+DocumentRoot /var/www/html
+Redirect permanent / https://vaausappctt402.aac.va.gov/
+#SSLProxyEngine On
+ProxyRequests Off
+ProxyPreserveHost On
+SSLVerifyClient none
+</VirtualHost>
+
 
 #
 # Dynamic Shared Object (DSO) Support
@@ -491,7 +515,7 @@ ErrorLog logs/error_log
 # Possible values include: debug, info, notice, warn, error, crit,
 # alert, emerg.
 #
-LogLevel warn
+LogLevel info
 
 #
 # The following directives define some format nicknames for use with
@@ -1043,10 +1067,20 @@ BrowserMatch "^Dreamweaver-WebDAV-SCM1" redirect-carefully
   TraceEnable off
 # Limit http request. Set to 15M for security purposes
   LimitRequestBody 15000000
+PerlRequire /etc/httpd/scripts/startup.pl
+PerlRequire /etc/httpd/scripts/constants.pl
+<Location /git/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
 
-<VirtualHost *:80>
-ServerName vaausappctt402.aac.va.gov
-DocumentRoot /var/www/html
-Redirect permanent / https://vaausappctt402.aac.va.gov/
-SSLVerifyClient none
-</VirtualHost>
+<Location /nexus/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
+
+<Location /jenkins/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>
+
+<Location /ntrt/>
+  PerlFixupHandler Prisme::ValidateHeader
+</Location>

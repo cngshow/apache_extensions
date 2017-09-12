@@ -4,7 +4,7 @@ application_urls:
 proxy_config_root:
  apache_url_proxy: https://vaausappctt202.aac.va.gov/
  proxy_urls:
-   - incoming_url_path: https://vaausappctt403.aac.va.gov:8443/nexus #this is like our incoming url
+   - incoming_url_path: https://vaausappctt203.aac.va.gov:8443/nexus #this is like our incoming url
      proxy_location: /nexus/
    - incoming_url_path: https://vaausappctt203.aac.va.gov:8080/jenkins/login #this is like our incoming url
      proxy_location: /jenkins
