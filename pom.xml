@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.vha.isaac.utils</groupId>
 	<artifactId>apache_extensions</artifactId>
-	<version>5.1-SNAPSHOT</version>
+	<version>5.0</version>
 
 	<packaging>pom</packaging>
 
