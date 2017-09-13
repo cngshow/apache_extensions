@@ -49,10 +49,10 @@ SetEnvIf User-Agent ".*MSIE.*" \
          downgrade-1.0 force-response-1.0
 CustomLog logs/ssl_request_log \
           "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
-# Special Proxy Mappings
-#
-#Rewrite Rules
 
+</VirtualHost>
+
+#Rewrite Rules
 ################# Server dbs 700 #################
 <Location /rails_prisme>
     RequestHeader set apache_time "%D,%t"
@@ -65,6 +65,7 @@ CustomLog logs/ssl_request_log \
     ProxyPass https://vaausdbsctt700.aac.va.gov:8080/git
     ProxyPassReverse https://vaausdbsctt700.aac.va.gov:8080/git
 </Location>
+
 
 ################# Server app 702 #################
 <Location /nexus>
@@ -104,7 +105,7 @@ CustomLog logs/ssl_request_log \
     ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/rails_komet_b
 </Location>
 
-################# Server app 704 #################
+
 <Location /3/isaac-rest>
     ProxyPass https://vaausappctt704.aac.va.gov:8080/isaac-rest_1
     ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/isaac-rest
