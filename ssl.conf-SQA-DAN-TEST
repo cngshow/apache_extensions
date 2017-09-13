@@ -52,36 +52,8 @@ CustomLog logs/ssl_request_log \
 # Special Proxy Mappings
 #
 #Rewrite Rules
-## for 703
 
-<Location /1/isaac-rest>
-    ProxyPass https://vaausappctt703.aac.va.gov:8080/isaac-rest_1
-    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/isaac-rest
-</Location>
-
-# for 703
-<Location /2/isaac-rest>
-    ProxyPass https://vaausappctt703.aac.va.gov:8080/isaac-rest_2
-    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/isaac-rest
-</Location>
-
-# for 704
-<Location /3/isaac-rest>
-    ProxyPass https://vaausappctt704.aac.va.gov:8080/isaac-rest_1
-    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/isaac-rest
-</Location>
-
-# for 704
-<Location /4/isaac-rest>
-    ProxyPass https://vaausappctt704.aac.va.gov:8080/isaac-rest_2
-    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/isaac-rest
-</Location>
-
-<Location /nexus>
-    ProxyPass https://vaausappctt702.aac.va.gov:8443/nexus
-    ProxyPassReverse https://vaausappctt702.aac.va.gov:8443/nexus
-</Location>
-
+################# Server dbs 700 #################
 <Location /rails_prisme>
     RequestHeader set apache_time "%D,%t"
     ProxyPass https://vaausdbsctt700.aac.va.gov:8080/rails_prisme
@@ -89,42 +61,66 @@ CustomLog logs/ssl_request_log \
     SetEnv proxy-sendchunks 1
 </Location>
 
-#Location for 703 komet_a
-<Location /1/rails_komet_a>
-    ProxyPass https://vaausappctt703.aac.va.gov:8080/rails_komet_a
-    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/rails_komet_a
-</Location>
-
-#Location for 703 komet_b
-<Location /2/rails_komet_b>
-    ProxyPass https://vaausappctt703.aac.va.gov:8080/rails_komet_b
-    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/rails_komet_b
-</Location>
-
-#Location for 704 komet_a
-<Location /3/rails_komet_a>
-    ProxyPass https://vaausappctt704.aac.va.gov:8080/rails_komet_a
-    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/rails_komet_a
-</Location>
-
-#Location for 704 komet_b
-<Location /4/rails_komet_b>
-    ProxyPass https://vaausappctt704.aac.va.gov:8080/rails_komet_b
-    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/rails_komet_b
-</Location>
-
 <Location /git>
     ProxyPass https://vaausdbsctt700.aac.va.gov:8080/git
     ProxyPassReverse https://vaausdbsctt700.aac.va.gov:8080/git
 </Location>
 
-<Location /ntrt>
-    ProxyPass https://vaausdbsctt702.aac.va.gov:8088/ntrt
-    ProxyPassReverse https://vaausdbsctt702.aac.va.gov:8088/ntrt
+################# Server app 702 #################
+<Location /nexus>
+    ProxyPass https://vaausappctt702.aac.va.gov:8443/nexus
+    ProxyPassReverse https://vaausappctt702.aac.va.gov:8443/nexus
 </Location>
-
 
 <Location /jenkins>
     ProxyPass https://vaausappctt702.aac.va.gov:8080/jenkins
     ProxyPassReverse https://vaausappctt702.aac.va.gov:8080/jenkins
+</Location>
+
+<Location /ntrt>
+    ProxyPass https://vaausappctt702.aac.va.gov:8088/ntrt
+    ProxyPassReverse https://vaausappctt702.aac.va.gov:8088/ntrt
+</Location>
+
+
+################# Server app 703 #################
+<Location /1/isaac-rest>
+    ProxyPass https://vaausappctt703.aac.va.gov:8080/isaac-rest_1
+    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/isaac-rest
+</Location>
+
+<Location /2/isaac-rest>
+    ProxyPass https://vaausappctt703.aac.va.gov:8080/isaac-rest_2
+    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/isaac-rest
+</Location>
+
+<Location /1/rails_komet_a>
+    ProxyPass https://vaausappctt703.aac.va.gov:8080/rails_komet_a
+    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/rails_komet_a
+</Location>
+
+<Location /2/rails_komet_b>
+    ProxyPass https://vaausappctt703.aac.va.gov:8080/rails_komet_b
+    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/rails_komet_b
+</Location>
+
+################# Server app 704 #################
+<Location /3/isaac-rest>
+    ProxyPass https://vaausappctt704.aac.va.gov:8080/isaac-rest_1
+    ProxyPassReverse https://vaausappctt703.aac.va.gov:8080/isaac-rest
+</Location>
+
+<Location /4/isaac-rest>
+    ProxyPass https://vaausappctt704.aac.va.gov:8080/isaac-rest_2
+    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/isaac-rest
+</Location>
+
+<Location /3/rails_komet_a>
+    ProxyPass https://vaausappctt704.aac.va.gov:8080/rails_komet_a
+    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/rails_komet_a
+</Location>
+
+<Location /4/rails_komet_b>
+    ProxyPass https://vaausappctt704.aac.va.gov:8080/rails_komet_b
+    ProxyPassReverse https://vaausappctt704.aac.va.gov:8080/rails_komet_b
 </Location>
