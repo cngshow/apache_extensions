@@ -35,8 +35,9 @@ SSLCipherSuite DHE-DSS-AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES
 SSLHonorCipherOrder on
 ###########################################
 
-SSLCertificateFile /app/certs/server.crt
-SSLCertificateKeyFile /app/certs/server.key
+SSLCertificateFile /app/certs/cert0602017/server.crt
+SSLCertificateKeyFile /app/certs/cert0602017/server.key
+
 SSLVerifyClient none
 <Files ~ "\.(cgi|shtml|phtml|php3?)$">
     SSLOptions +StdEnvVars
