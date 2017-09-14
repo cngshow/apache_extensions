@@ -74,7 +74,7 @@ SSLCryptoDevice builtin
     ###########################################
     
     SSLCertificateFile /app/certs/server.crt
-    SSLCertificateKeyFile /app/certs/server.key
+    SSLCertificateKeyFile /app/certs/cert0602017/server.key
     
     SSLVerifyClient none
     <Files ~ "\.(cgi|shtml|phtml|php3?)$">
