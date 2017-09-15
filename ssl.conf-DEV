@@ -73,7 +73,7 @@ SSLCryptoDevice builtin
     SSLHonorCipherOrder on
     ###########################################
     
-    SSLCertificateFile /app/certs/server.crt
+    SSLCertificateFile /app/certs/cert0602017/server.crt
     SSLCertificateKeyFile /app/certs/cert0602017/server.key
     
     SSLVerifyClient none
