@@ -149,6 +149,8 @@ MaxRequestsPerChild  0
 Listen 80
 <VirtualHost *:80>
 ServerName vaausappctt701.aac.va.gov
+
+
 DocumentRoot /var/www/html
 Redirect permanent / https://vaausappctt701.aac.va.gov/
 #SSLProxyEngine On
@@ -1065,20 +1067,3 @@ BrowserMatch "^Dreamweaver-WebDAV-SCM1" redirect-carefully
   TraceEnable off
 # Limit http request. Set to 15M for security purposes
   LimitRequestBody 15000000
-PerlRequire /etc/httpd/scripts/startup.pl
-PerlRequire /etc/httpd/scripts/constants.pl
-<Location /git/>
-  PerlFixupHandler Prisme::ValidateHeader
-</Location>
-
-<Location /nexus/>
-  PerlFixupHandler Prisme::ValidateHeader
-</Location>
-
-<Location /jenkins/>
-  PerlFixupHandler Prisme::ValidateHeader
-</Location>
-
-<Location /ntrt/>
-  PerlFixupHandler Prisme::ValidateHeader
-</Location>
