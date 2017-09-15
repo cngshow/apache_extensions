@@ -53,6 +53,9 @@ SSLCryptoDevice builtin
               "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 </VirtualHost>
 
+PerlRequire /etc/httpd/scripts/startup.pl
+PerlRequire /etc/httpd/scripts/constants.pl
+
 #Rewrite Rules
 ################# Server dbs 402 #################
 <Location /rails_prisme>
@@ -63,6 +66,7 @@ SSLCryptoDevice builtin
 </Location>
 
 <Location /git>
+    PerlFixupHandler Prisme::ValidateHeader
     ProxyPass https://vaausdbsctt402.aac.va.gov:8080/git
     ProxyPassReverse https://vaausdbsctt402.aac.va.gov:8080/git
 </Location>
@@ -70,16 +74,19 @@ SSLCryptoDevice builtin
 
 ################# Server app 403 #################
 <Location /nexus>
+    PerlFixupHandler Prisme::ValidateHeader
     ProxyPass https://vaausappctt403.aac.va.gov:8443/nexus
     ProxyPassReverse https://vaausappctt403.aac.va.gov:8443/nexus
 </Location>
 
 <Location /jenkins>
+    PerlFixupHandler Prisme::ValidateHeader
     ProxyPass https://vaausappctt403.aac.va.gov:8080/jenkins
     ProxyPassReverse https://vaausappctt403.aac.va.gov:8080/jenkins
 </Location>
 
 <Location /ntrt>
+    PerlFixupHandler Prisme::ValidateHeader
     ProxyPass https://vaausappctt403.aac.va.gov:8088/ntrt
     ProxyPassReverse https://vaausappctt403.aac.va.gov:8088/ntrt
 </Location>
