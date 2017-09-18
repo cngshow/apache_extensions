@@ -28,7 +28,6 @@ my $pid_file = "$pid_dir/$$.pid";
 #used in debugging for easy pid creation tracking to analyze what apache is doing
 sub pid_file {
     mkdir $pid_dir unless (-e $pid_dir);
-    my $dt   = DateTime->now;
     my $time = localtime;
     open(my $fh, '>>', $pid_file);
     say $fh "$$ made a rest fetch at: $time";
