@@ -15,7 +15,7 @@ use LWP::UserAgent;
 use URI;
 my $ua = LWP::UserAgent->new( ssl_opts => { verify_hostname => 0 } );
 use JSON;
-use File::Touch;
+use DateTime;
 
 #print "My lease will last for $CONST::SECONDS_CACHE seconds!\n";
 my %cache_hash;
@@ -23,14 +23,18 @@ $cache_hash{'lease'} = { };
 $cache_hash{'roles'} = { };
 my $json_decoder_ring = JSON->new;
 my $pid_dir = "/temp/apache_extensions";
-my $toucher = File::Touch->new();
 my $pid_file = "$pid_dir\\$$.pid";
 
 
 #used in debugging for easy pid creation tracking to analyze what apache is doing
 sub pid_file {
     mkdir $pid_dir unless (-e $pid_dir);
-    $toucher->touch($pid_file);
+    my $dt   = DateTime->now;
+    my $date = $dt->ymd;   # Retrieves date as a string in 'yyyy-mm-dd' format
+    my $time = $dt->hms;   # Retrieves time as a string in 'hh:mm:ss' format
+    open(my $fh, '>>', $file);
+    say $fh "$$ made a rest fetch at:  $date $time";
+    close $fh;
 }
 
 
