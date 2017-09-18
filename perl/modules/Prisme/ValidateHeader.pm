@@ -25,16 +25,19 @@ $cache_hash{'roles'} = { };
 my $json_decoder_ring = JSON->new;
 my $pid_dir = "/tmp/apache_extensions";
 my $pid_file = "$pid_dir/$$.pid";
-
+my $total_rest_calls = 0;
+my $total_rest_cache_uses = 0;
 
 #used in debugging for easy pid creation tracking to analyze what apache is doing
 sub pid_file($$) {
     my $user_name = shift;
-    my $rest _time = shift;
+    my $rest_time = shift;
+    my $rest_calls = shift;
+    my $cache_uses = shift;
     mkdir $pid_dir unless (-e $pid_dir);
     my $time = localtime;
     open(my $fh, '>>', $pid_file);
-    say $fh "$$ made a rest fetch at ($user_name -- $rest_time (seconds)): $time";
+    say $fh "$$ made a rest fetch at ($user_name -- $rest_time (seconds)): $time. rest_call_count=$rest_calls ; rest_cache_use=$cache_uses";
     close $fh;
 }
 
@@ -105,11 +108,14 @@ sub rest_call($$$) {
             #if we get invalid JSON.  We will log the error, and send a forbidden.
             my $rest_fetch_time = gettimeofday;
             $res = $ua->request($req);
-            $rest_fetch_time = gettimeofday - $rest_fetch_time
+            $rest_fetch_time = gettimeofday - $rest_fetch_time;
             $content = $res->content;
             $logger->info("The roles from prisme are: $content, fetch time was $rest_fetch_time seconds.");
             $roles = $json_decoder_ring->decode($content)->{'roles'};
-            pid_file($user_name, $rest_fetch_time ) if ($CONST::GENERATE_PID_FILE);
+            if ($CONST::GENERATE_PID_FILE) {
+                $total_rest_calls++;
+                pid_file($user_name, $rest_fetch_time, $total_rest_calls, $total_rest_cache_uses );
+            }
         };
         unless ($roles) {
             $logger->error("Failed to get Prisme roles!");
@@ -128,6 +134,10 @@ sub rest_call($$$) {
         $logger->info("Setting time for $user_name to $current_time");
     }
     else {
+        if ($CONST::GENERATE_PID_FILE) {
+            $total_rest_cache_uses++;
+            pid_file($user_name, $rest_fetch_time, $total_rest_calls, $total_rest_cache_uses );
+        }
         $logger->info("Using role cache for user $user_name");
         $return_code = allowed( $cache_hash{'roles'}->{$user_name}, $context, $logger );
     }
@@ -144,7 +154,6 @@ sub apr_iterator($$) {
 }
 
 sub handler {
-    my $r = shift;
     my $r = shift;
     my $context = (grep {$_ ne ''} split('/', $r->parsed_uri()->rpath))[0];
 #    my $path_info = $r->path_info();
@@ -167,11 +176,9 @@ sub handler {
     }
     #my $accept = $r->headers_in->get('Accept');
     my $user = $r->headers_in->get('ADSAMACCOUNTNAME');
-    $user = ': no user in header ADSAMACCOUNTNAME (for request type $request_type)' unless $user;
-    $r->log->info("Request start on pid $$: The user for this request is $user");
     #$r->log->info("Request start on pid $$: The accept header is $accept");
-
     if ($user) {
+        $r->log->info("Request start on pid $$: The user for this request is $user");
         my $val = rest_call($user, $context, $r->log);
         my $roles = $cache_hash{'roles'}->{$user};
         my $role_string = join(',', @$roles);
