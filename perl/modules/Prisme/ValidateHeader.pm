@@ -23,7 +23,7 @@ $cache_hash{'lease'} = { };
 $cache_hash{'roles'} = { };
 my $json_decoder_ring = JSON->new;
 my $pid_dir = "/temp/apache_extensions";
-my $pid_file = "$pid_dir\\$$.pid";
+my $pid_file = "$pid_dir/$$.pid";
 
 
 #used in debugging for easy pid creation tracking to analyze what apache is doing
