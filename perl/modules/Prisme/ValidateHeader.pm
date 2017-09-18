@@ -29,7 +29,7 @@ my $total_rest_calls = 0;
 my $total_rest_cache_uses = 0;
 
 #used in debugging for easy pid creation tracking to analyze what apache is doing
-sub pid_file($$) {
+sub pid_file($$$$) {
     my $user_name = shift;
     my $rest_time = shift;
     my $rest_calls = shift;
@@ -134,10 +134,7 @@ sub rest_call($$$) {
         $logger->info("Setting time for $user_name to $current_time");
     }
     else {
-        if ($CONST::GENERATE_PID_FILE) {
-            $total_rest_cache_uses++;
-            pid_file($user_name, $rest_fetch_time, $total_rest_calls, $total_rest_cache_uses );
-        }
+        $total_rest_cache_uses++ if ($CONST::GENERATE_PID_FILE);
         $logger->info("Using role cache for user $user_name");
         $return_code = allowed( $cache_hash{'roles'}->{$user_name}, $context, $logger );
     }
