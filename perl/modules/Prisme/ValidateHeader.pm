@@ -21,7 +21,7 @@ my %cache_hash;
 $cache_hash{'lease'} = { };
 $cache_hash{'roles'} = { };
 my $json_decoder_ring = JSON->new;
-my $pid_dir = "/temp/apache_extensions";
+my $pid_dir = "/tmp/apache_extensions";
 my $pid_file = "$pid_dir/$$.pid";
 
 
