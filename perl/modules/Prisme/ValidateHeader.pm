@@ -15,6 +15,8 @@ use LWP::UserAgent;
 use URI;
 my $ua = LWP::UserAgent->new( ssl_opts => { verify_hostname => 0 } );
 use JSON;
+use Time::HiRes qw/gettimeofday/;
+
 
 #print "My lease will last for $CONST::SECONDS_CACHE seconds!\n";
 my %cache_hash;
@@ -26,11 +28,13 @@ my $pid_file = "$pid_dir/$$.pid";
 
 
 #used in debugging for easy pid creation tracking to analyze what apache is doing
-sub pid_file {
+sub pid_file($$) {
+    my $user_name = shift;
+    my $rest _time = shift;
     mkdir $pid_dir unless (-e $pid_dir);
     my $time = localtime;
     open(my $fh, '>>', $pid_file);
-    say $fh "$$ made a rest fetch at: $time";
+    say $fh "$$ made a rest fetch at ($user_name -- $rest_time (seconds)): $time";
     close $fh;
 }
 
@@ -99,11 +103,13 @@ sub rest_call($$$) {
             #we will trap any errors during the fetch and parse.
             #parsing will fail if we cannot cannect to Prisme or
             #if we get invalid JSON.  We will log the error, and send a forbidden.
+            my $rest_fetch_time = gettimeofday;
             $res = $ua->request($req);
+            $rest_fetch_time = gettimeofday - $rest_fetch_time
             $content = $res->content;
-            $logger->info("The roles from prisme are: $content");
+            $logger->info("The roles from prisme are: $content, fetch time was $rest_fetch_time seconds.");
             $roles = $json_decoder_ring->decode($content)->{'roles'};
-            pid_file if ($CONST::GENERATE_PID_FILE);
+            pid_file($user_name, $rest_fetch_time ) if ($CONST::GENERATE_PID_FILE);
         };
         unless ($roles) {
             $logger->error("Failed to get Prisme roles!");
@@ -139,9 +145,10 @@ sub apr_iterator($$) {
 
 sub handler {
     my $r = shift;
+    my $r = shift;
     my $context = (grep {$_ ne ''} split('/', $r->parsed_uri()->rpath))[0];
-    my $path_info = $r->path_info();
-    $r->log->info("path info is $path_info");
+#    my $path_info = $r->path_info();
+#    $r->log->info("path info is $path_info");
     my $request_type = (split('\.',
         (grep {$_ ne ''} split('/', $r->parsed_uri()->rpath))[- 1]))[- 1]; #something like 'js' or 'css'
     my $auto_accept = grep {$_ eq $request_type} @$CONST::AUTO_ACCEPT;
@@ -160,6 +167,7 @@ sub handler {
     }
     #my $accept = $r->headers_in->get('Accept');
     my $user = $r->headers_in->get('ADSAMACCOUNTNAME');
+    $user = ': no user in header ADSAMACCOUNTNAME (for request type $request_type)' unless $user;
     $r->log->info("Request start on pid $$: The user for this request is $user");
     #$r->log->info("Request start on pid $$: The accept header is $accept");
 
