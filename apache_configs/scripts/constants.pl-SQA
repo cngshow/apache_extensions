@@ -12,5 +12,6 @@ $DEFAULT_ROLES = ['super_user','administrator']; # If the context is not listed 
 $CGI_USER_NAME = 'id';
 $LOG_HEADERS=0; #0 is false 1 is true, logs at the info log level.
 $ACCEPT_ALL_REQUESTS=0; #if 0 works as expected (role validation occurs), if 1 role validation is disabled
+$GENERATE_PID_FILE=0; #if 1 we generate a pid file in /tmp/apache_extension
 $AUTO_ACCEPT=['css','js','png','image','jpg','jpeg','class','gif','fcc','scc','sfcc','ccc','ntc', 'ico','map','eot'];#requests of this type will be auto accepted (they will never be forbidden), so http://www.foo.com/faa/fi.js would be accepted.
 1;
